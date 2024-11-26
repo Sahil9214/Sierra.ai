@@ -7,6 +7,7 @@ import ResultSpeak from './Components/ResultSpeak/ResultSpeak.jsx'
 import SafeAndSecure from "./Components/Navbar/SafeAndSecure/SafeAndSecure";
 import Footer from './Components/Footer/Footer.jsx';
 import Header from './Components/Header/Header';
+
 /* eslint-disable prettier/prettier */
 export default function Home() {
   return (
