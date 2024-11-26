@@ -68,10 +68,10 @@ const Landing = () => {
                 </div>
             </div>
             {/* Trusted by leading Brands */}
-            <section className="max-w-7xl mx-auto px-4 py-8 md:py-12 lg:py-16 ">
+            <section className="w-[85vw] mx-auto px-4 py-8 md:py-12 lg:py-16  ">
                 <div className="flex flex-col md:flex-row items-center space-y-6 md:space-y-0 md:space-x-8 lg:space-x-20">
                     {/* Title */}
-                    <div className="w-full md:w-auto ">
+                    <div className="mx-auto max-w-screen-3xl px-4 lg:px-5.5                                     ">
                         <h3 className="text-lg md:text-xl lg:text-xl text-gray-600 font-medium text-left whitespace-nowrap">
                             Trusted by leading brands
                         </h3>

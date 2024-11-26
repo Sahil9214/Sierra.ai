@@ -36,13 +36,13 @@ const SierraSpeak = () => {
             className={`transition-opacity ${isVisible ? "fade-in" : "opacity-0"}`}
         >
             <section
-                className="  h-full py-8 theme-product relative  theme-tech:bg-black theme-tech:text-gray-100 theme-product:bg-gray-100 theme-platform:bg-gray-200 md:py-16 lg:py-18"
+                className="h-full py-8 theme-product relative  theme-tech:bg-black theme-tech:text-gray-100 theme-product:bg-gray-100 theme-platform:bg-gray-200 md:py-16 lg:py-18 "
                 style={{
                     zIndex: 4,
                     backgroundColor: "#e7e6e4",
                 }}
             >
-                <div className="mx-auto max-w-screen-3xl px-4 lg:px-2.5">
+                <div className="mx-auto max-w-screen-3xl px-4 lg:px-0">
                     <div className="grid grid-cols-12 gap-2 md:gap-2.5 pb-8 md:pb-14 lg:pb-18">
                         <div className="col-span-12 flex flex-col items-start md:col-span-10 lg:col-span-7 lg:col-start-2">
                             <h2 className="text-[7vw] title-l text-pretty pr-4 text-black theme-tech:text-white md:pr-0 lg:text-[2.8vw]">

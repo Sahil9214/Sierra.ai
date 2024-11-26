@@ -44,7 +44,7 @@ const MakeAIYourOwn = () => {
                     }}
                 >
                     <div style={{ opacity: 1, transform: "none" }}>
-                        <div className="mx-auto max-w-screen-3xl px-4 lg:px-2.5">
+                        <div className="mx-auto max-w-screen-3xl px-4 lg:px-0">
                             <div className="grid grid-cols-12 gap-2 md:gap-2.5 pb-8 md:pb-14 lg:pb-18">
                                 <div className="col-span-12 flex flex-col items-start md:col-span-10 lg:col-span-7 lg:col-start-2">
                                     <h2
