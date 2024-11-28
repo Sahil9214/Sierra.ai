@@ -3,6 +3,9 @@
 /* eslint-disable prettier/prettier */
 "use client";
 import React, { useEffect, useRef, useState } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import Button from "../Buttons/Button";
 
 const SierraSpeak = () => {
     const [isVisible, setIsVisible] = useState(false);
@@ -29,6 +32,45 @@ const SierraSpeak = () => {
             }
         };
     }, []);
+    const sectionRef = useRef(null);
+    const titleRef = useRef(null);
+    const textRef = useRef(null);
+    const buttonRef = useRef(null);
+
+    useEffect(() => {
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Create a timeline for smooth sequential animation
+        const tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: sectionRef.current,
+                start: "top 80%", // Adjust this value to change when animation starts
+                toggleActions: "play none none reverse",
+                // markers: true, // Enable for debugging
+            },
+        });
+
+        // Add animations to timeline
+        tl.fromTo(
+            [titleRef.current, textRef.current, buttonRef.current],
+            {
+                y: -100,
+                opacity: 0,
+            },
+            {
+                y: 0,
+                opacity: 1,
+                duration: 1,
+                stagger: 0.2, // Creates a delay between each element's animation
+                ease: "power3.out",
+            },
+        );
+
+        return () => {
+            // Cleanup
+            ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+        };
+    }, []);
 
     return (
         <div
@@ -39,39 +81,33 @@ const SierraSpeak = () => {
                 className="h-full py-8 theme-product relative  theme-tech:bg-black theme-tech:text-gray-100 theme-product:bg-gray-100 theme-platform:bg-gray-200 md:py-16 lg:py-18 "
                 style={{
                     zIndex: 4,
-                    backgroundColor: "#e7e6e4",
+                    // backgroundColor: "#e7e6e4",
+                    backgroundColor:
+                        window.innerWidth < 768 || window.innerWidth > 1720
+                            ? "var(--sierra-grey-background-color)"
+                            : "#e7e6e4",
                 }}
             >
                 <div className="mx-auto max-w-screen-3xl px-4 lg:px-0">
                     <div className="grid grid-cols-12 gap-2 md:gap-2.5 pb-8 md:pb-14 lg:pb-18">
-                        <div className="col-span-12 flex flex-col items-start md:col-span-10 lg:col-span-7 lg:col-start-2">
-                            <h2 className="text-[7vw] title-l text-pretty pr-4 text-black theme-tech:text-white md:pr-0 lg:text-[2.8vw]">
+                        <div
+                            ref={sectionRef}
+                            className="col-span-12 flex flex-col items-start md:col-span-10 lg:col-span-7 lg:col-start-2"
+                        >
+                            <h2
+                                ref={titleRef}
+                                className="text-[7vw] title-l text-pretty pr-4 text-black theme-tech:text-white md:pr-0 lg:text-[2.8vw]"
+                            >
                                 Sierra speaks
                             </h2>
-                            <p className="text-[4.5vw] body-m mt-2 text-pretty pr-4 text-gray-400 theme-tech:text-gray-100 md:max-w-[80%] md:pr-0 lg:mt-6 lg:text-[1.17vw]">
+                            <p
+                                ref={textRef}
+                                className="text-[4.5vw] body-m mt-2 text-pretty pr-4 text-gray-600 theme-tech:text-gray-100 md:max-w-[80%] md:pr-0 lg:mt-6 lg:text-[1.17vw]"
+                            >
                                 Introducing voice, a new way to communicate with
                                 your customers using conversational AI.
                             </p>
-                            <a
-                                className="body-s inline-flex items-center justify-between rounded-full outline-none transition cursor-pointer disabled:cursor-not-allowed border border-gray-300 text-gray-400 group-hover:border-green-500 hover:border-green-500 hover:text-green-500 group-hover:text-green-500 focus-visible:border-yellow active:border-green-300 active:text-green-300 gap-6 py-3 md:py-2 theme-tech:text-white theme-tech:border-white theme-tech:hover:text-gray-200 theme-platform:border-gray-300 theme-platform:hover:border-green-500 theme-platform:focus-visible:border-yellow theme-tech:hover:border-gray-200 theme-tech:focus-visible:border-yellow theme-tech:focus-visible:text-yellow disabled:border-gray-200 disabled:text-gray-300 px-4 mt-4 lg:mt-6"
-                                href="/voice"
-                            >
-                                Learn more
-                                <svg
-                                    viewBox="0 0 24 24"
-                                    fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    className="rotate-90 h-5 w-5"
-                                >
-                                    <path
-                                        d="M6 10L12 4L18 10M12 5V20"
-                                        stroke="currentColor"
-                                        strokeWidth="2"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                    ></path>
-                                </svg>
-                            </a>
+                            <Button name={"Learn More"} />
                         </div>
                     </div>
                     <div className="grid grid-cols-12 gap-2 md:gap-2.5">
@@ -174,7 +210,7 @@ const SierraSpeak = () => {
                                         </svg>
                                         Engage with faster, better phone calls
                                     </h3>
-                                    <p className="body-s pr-4 md:pr-0 lg:pb-4 text-[1] text-gray-400">
+                                    <p className="body-s pr-4 md:pr-0 lg:pb-4 text-[1] text-gray-600">
                                         Your agent delivers delightful and
                                         personalized conversations. Always
                                         available, endlessly patient, and able
@@ -199,7 +235,7 @@ const SierraSpeak = () => {
                                         </svg>
                                         Connect to your call center ecosystem
                                     </h3>
-                                    <p className="body-s pr-4 md:pr-0 lg:pb-4 text-[1] text-gray-400">
+                                    <p className="body-s pr-4 md:pr-0 lg:pb-4 text-[1] text-gray-600">
                                         Seamlessly integrate with your existing
                                         technology stack, with comprehensive
                                         summaries and intelligent routing when
@@ -224,7 +260,7 @@ const SierraSpeak = () => {
                                         Scale consistent experiences on every
                                         channel
                                     </h3>
-                                    <p className="body-s pr-4 md:pr-0 lg:pb-4 text-[1] text-gray-400">
+                                    <p className="body-s pr-4 md:pr-0 lg:pb-4 text-[1] text-gray-600">
                                         Use Agent OS to build once and run
                                         everywhere, with a
                                         continuously-improving, trusted AI agent

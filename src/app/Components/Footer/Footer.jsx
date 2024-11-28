@@ -11,7 +11,7 @@ const Footer = () => {
             <div className="mx-auto max-w-screen-3xl px-4 lg:px-2.5">
                 <div className="mx-auto max-w-5xl">
                     <h2
-                        className="text-[7.5vw] headline mb-8 w-full text-center lg:text-[3.7vw]"
+                        className="headline mb-8 w-full text-center"
                         style={{ color: "rgba(34,34,34,1)" }}
                     >
                         See what Sierra can do for you.
@@ -22,7 +22,7 @@ const Footer = () => {
                     </p>
                     <div className="mt-10 flex justify-center lg:mt-20">
                         <a
-                            className="body-s inline-flex items-center justify-between rounded-full outline-none transition cursor-pointer disabled:cursor-not-allowed bg-green-500 text-white hover:bg-transparent hover:text-green-500 border border-green-500 focus-visible:bg-transparent focus-visible:border-yellow focus-visible:text-yellow gap-12 px-4 py-3 md:px-8 md:py-4 active:bg-green-300 active:border-green-300 disabled:bg-gray-300 disabled:border-gray-300 disabled:text-white"
+                            className="body-s inline-flex items-center justify-between rounded-full outline-none transition cursor-pointer disabled:cursor-not-allowed bg-green-500 text-white hover:bg-transparent hover:text-green-500 border border-green-500 focus-visible:bg-transparent focus-visible:border-yellow focus-visible:text-yellow gap-12 px-4 py-3 md:px-8 md:py-4 active:bg-green-300 active:border-green-300 disabled:bg-gray-300 disabled:text-gray-600 disabled:text-white"
                             href="/learn-more"
                         >
                             Learn more
