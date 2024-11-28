@@ -10,6 +10,14 @@ import Button from "../Buttons/Button";
 const SierraSpeak = () => {
     const [isVisible, setIsVisible] = useState(false);
     const ref = useRef(null);
+    const [windowWidth, setWindowWidth] = useState(0);
+
+    useEffect(() => {
+        setWindowWidth(window.innerWidth);
+        const handleResize = () => setWindowWidth(window.innerWidth);
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
 
     useEffect(() => {
         const observer = new IntersectionObserver(
@@ -81,9 +89,8 @@ const SierraSpeak = () => {
                 className="h-full py-8 theme-product relative  theme-tech:bg-black theme-tech:text-gray-100 theme-product:bg-gray-100 theme-platform:bg-gray-200 md:py-16 lg:py-18 "
                 style={{
                     zIndex: 4,
-                    // backgroundColor: "#e7e6e4",
                     backgroundColor:
-                        window.innerWidth < 768 || window.innerWidth > 1720
+                        windowWidth < 768 || windowWidth > 1720
                             ? "var(--sierra-grey-background-color)"
                             : "#e7e6e4",
                 }}

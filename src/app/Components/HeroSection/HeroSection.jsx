@@ -1,16 +1,24 @@
 /* eslint-disable prettier/prettier */
+import React, { useState, useEffect } from 'react';
+
 const HeroSection = () => {
+    const [windowWidth, setWindowWidth] = useState(0);
+
+    useEffect(() => {
+        setWindowWidth(window.innerWidth);
+        const handleResize = () => setWindowWidth(window.innerWidth);
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
     return (
         <div>
             <div className="flex flex-col items-center text-center lg:max-w-[66.67%] mx-auto">
-                <h1
-                    //className="text-[30px] leading-[9.5vw] text-center text-[#222222] headline mb-4 whitespace-pre-wrap text-balance theme-tech:text-white sm:text-[4.5vw] sm:leading-9  md:text-[5vw] md:leading-[5vw] lg:text-[4vw] lg:leading-[4.5vw] lg:mb-8"
-                    className="text-headline-sm md:text-headline-md lg:text-headline-lg text-black mb-4 whitespace-pre-wrap text-balance text-center"
-                >
+                <h1 className="text-headline-sm md:text-headline-md lg:text-headline-lg text-black mb-4 whitespace-pre-wrap text-balance text-center">
                     Meet Sierra.
                     <br />
                     Strike up a new type of
-                    {window.innerWidth > 640 && window.innerWidth < 1024 ? (
+                    {windowWidth > 640 && windowWidth < 1024 ? (
                         ""
                     ) : (
                         <br />
