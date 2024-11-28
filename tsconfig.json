@@ -28,7 +28,7 @@
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx"
-, "src/app/Components/Landing/Landing.jsx", "src/app/Components/Navbar/Navbar.jsx"  ],
+, "src/app/Components/Landing/Landing.jsx", "src/app/Components/Navbar/Navbar.jsx", "src/app/utils/theme.js"  ],
   "exclude": [
     "node_modules"
   ]

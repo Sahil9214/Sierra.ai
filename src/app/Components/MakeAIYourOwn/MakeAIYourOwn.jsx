@@ -3,6 +3,9 @@
 /* eslint-disable prettier/prettier */
 "use client";
 import React, { useEffect, useRef, useState } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import Button from "../Buttons/Button";
 
 const MakeAIYourOwn = () => {
     const [isVisible, setIsVisible] = useState(false);
@@ -29,6 +32,42 @@ const MakeAIYourOwn = () => {
             }
         };
     }, []);
+    const sectionRef = useRef(null);
+    const titleRef = useRef(null);
+    const textRef = useRef(null);
+    const buttonRef = useRef(null);
+
+    useEffect(() => {
+        gsap.registerPlugin(ScrollTrigger);
+
+        const tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: sectionRef.current,
+                start: "top 80%",
+                toggleActions: "play none none reverse",
+                // markers: true, // Uncomment for debugging
+            },
+        });
+
+        tl.fromTo(
+            [titleRef.current, textRef.current, buttonRef.current],
+            {
+                y: -100,
+                opacity: 0,
+            },
+            {
+                y: 0,
+                opacity: 1,
+                duration: 1,
+                stagger: 0.2,
+                ease: "power3.out",
+            },
+        );
+
+        return () => {
+            ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+        };
+    }, []);
 
     return (
         <div
@@ -45,42 +84,27 @@ const MakeAIYourOwn = () => {
                 >
                     <div style={{ opacity: 1, transform: "none" }}>
                         <div className="mx-auto max-w-screen-3xl px-4 lg:px-0">
-                            <div className="grid grid-cols-12 gap-2 md:gap-2.5 pb-8 md:pb-14 lg:pb-18">
+                            <div
+                                ref={sectionRef}
+                                className="grid grid-cols-12 gap-2 md:gap-2.5 pb-8 md:pb-14 lg:pb-18"
+                            >
                                 <div className="col-span-12 flex flex-col items-start md:col-span-10 lg:col-span-7 lg:col-start-2">
                                     <h2
-                                        className="
-                                text-[7vw]
-                                
-                                title-l text-pretty pr-4 text-black theme-tech:text-white md:pr-0 lg:text-[2.8vw]"
+                                        ref={titleRef}
+                                        className=" text-[7vw]  title-l text-pretty pr-4 text-black theme-tech:text-white md:pr-0 lg:text-[2.8vw]"
                                     >
                                         Make AI Your Own
                                     </h2>
-                                    <p className="text-[4.5vw] body-m mt-2 text-pretty pr-4 text-gray-400 theme-tech:text-gray-100 md:max-w-[80%] md:pr-0 lg:mt-6 lg:text-[1.17vw]">
+                                    <p
+                                        ref={textRef}
+                                        className="text-[4.5vw] body-m mt-2 text-pretty pr-4 text-gray-600 theme-tech:text-gray-100 md:max-w-[80%] md:pr-0 lg:mt-6 lg:text-[1.17vw]"
+                                    >
                                         Sierra’s conversational AI platform
                                         enables your company to build an AI
                                         agent that is personalized to your
                                         business and customers.
                                     </p>
-                                    <a
-                                        className="body-s inline-flex items-center justify-between rounded-full outline-none transition cursor-pointer disabled:cursor-not-allowed border border-gray-500 text-gray-400 group-hover:border-green-500 hover:border-green-500 hover:text-green-500 group-hover:text-green-500 focus-visible:border-yellow active:border-green-300 active:text-green-300 gap-6 py-3 md:py-2 theme-tech:text-white theme-tech:border-white theme-tech:hover:text-gray-200 theme-platform:border-gray-300 theme-platform:hover:border-green-500 theme-platform:focus-visible:border-yellow theme-tech:hover:border-gray-200 theme-tech:focus-visible:border-yellow theme-tech:focus-visible:text-yellow disabled:border-gray-200 disabled:text-gray-300 px-4 mt-4 lg:mt-6"
-                                        href="/platform"
-                                    >
-                                        Our platform
-                                        <svg
-                                            viewBox="0 0 24 24"
-                                            fill="none"
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            className="rotate-90 h-5 w-5"
-                                        >
-                                            <path
-                                                d="M6 10L12 4L18 10M12 5V20"
-                                                stroke="currentColor"
-                                                strokeWidth="2"
-                                                strokeLinecap="round"
-                                                strokeLinejoin="round"
-                                            ></path>
-                                        </svg>
-                                    </a>
+                                    <Button name={"Our platform"} />
                                 </div>
                             </div>
                             <div className="grid grid-cols-12 gap-2 md:gap-2.5">
@@ -105,7 +129,15 @@ const MakeAIYourOwn = () => {
                                             aria-selected="true"
                                             aria-controls="react-aria-:Rjad6bpla:-tabpanel-84517070a64a"
                                             role="tab"
-                                            className="group cursor-pointer overflow-hidden rounded-2xl outline-none transition-[background-color] data-[hovered]:bg-gray-100 data-[hovered]:theme-tech:bg-gray-700 data-[hovered]:theme-product:bg-white"
+                                            className="group cursor-pointer
+                                             overflow-hidden
+                                              rounded-2xl 
+                                              outline-none
+                                               transition-[background-color]
+                                                bg-gray-100
+                                       
+                                                
+                                                "
                                             data-rac=""
                                             data-selected="true"
                                         >
@@ -136,7 +168,7 @@ const MakeAIYourOwn = () => {
                                                 }}
                                             >
                                                 <div>
-                                                    <p className="body-s px-4 pb-5 pt-2 md:p-4 md:pt-2 lg:px-6 lg:py-4 text-gray-400">
+                                                    <p className="body-s px-4 pb-5 pt-2 md:p-4 md:pt-2 lg:px-6 lg:py-4 text-gray-600">
                                                         Imbue your agent with
                                                         your company’s identity,
                                                         policies, processes, and
