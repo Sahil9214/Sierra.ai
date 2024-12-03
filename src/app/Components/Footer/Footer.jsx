@@ -7,7 +7,9 @@ import { ArrowRight } from "lucide-react";
 
 const Footer = () => {
     return (
-        <div className="mt-20 w-[90vw] mx-auto ">
+        <div
+        // className="mt-20 w-[90vw] mx-auto "
+        >
             <section
                 className="theme-base relative bg-white py-12 theme-tech:bg-black theme-tech:text-gray-100 theme-product:bg-gray-100 theme-platform:bg-gray-200 md:py-16 lg:py-18 text-black"
                 style={{ zIndex: 1 }}
