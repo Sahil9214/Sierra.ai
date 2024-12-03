@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
 const HeroSection = () => {
     const [windowWidth, setWindowWidth] = useState(0);
@@ -7,8 +7,8 @@ const HeroSection = () => {
     useEffect(() => {
         setWindowWidth(window.innerWidth);
         const handleResize = () => setWindowWidth(window.innerWidth);
-        window.addEventListener('resize', handleResize);
-        return () => window.removeEventListener('resize', handleResize);
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
     }, []);
 
     return (
@@ -18,11 +18,7 @@ const HeroSection = () => {
                     Meet Sierra.
                     <br />
                     Strike up a new type of
-                    {windowWidth > 640 && windowWidth < 1024 ? (
-                        ""
-                    ) : (
-                        <br />
-                    )}{" "}
+                    {windowWidth > 640 && windowWidth < 1024 ? "" : <br />}{" "}
                     conversation.
                 </h1>
                 <p className="body-m md:body-l lg:title-s max-w-xl whitespace-pre-wrap text-pretty text-gray-600">

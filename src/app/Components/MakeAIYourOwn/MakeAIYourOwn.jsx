@@ -10,6 +10,10 @@ import Button from "../Buttons/Button";
 const MakeAIYourOwn = () => {
     const [isVisible, setIsVisible] = useState(false);
     const ref = useRef(null);
+    const sectionRef = useRef(null);
+    const titleRef = useRef(null);
+    const textRef = useRef(null);
+    const buttonRef = useRef(null);
 
     useEffect(() => {
         const observer = new IntersectionObserver(
@@ -32,42 +36,43 @@ const MakeAIYourOwn = () => {
             }
         };
     }, []);
-    const sectionRef = useRef(null);
-    const titleRef = useRef(null);
-    const textRef = useRef(null);
-    const buttonRef = useRef(null);
 
     useEffect(() => {
         gsap.registerPlugin(ScrollTrigger);
+
+        // Ensure elements are available before animating
+        if (!titleRef.current || !textRef.current || !buttonRef.current) return;
+
+        const elements = [
+            titleRef.current,
+            textRef.current,
+            buttonRef.current,
+        ].filter(Boolean); // Filter out any null elements
 
         const tl = gsap.timeline({
             scrollTrigger: {
                 trigger: sectionRef.current,
                 start: "top 80%",
                 toggleActions: "play none none reverse",
-                // markers: true, // Uncomment for debugging
             },
         });
 
-        tl.fromTo(
-            [titleRef.current, textRef.current, buttonRef.current],
-            {
-                y: -100,
-                opacity: 0,
-            },
-            {
-                y: 0,
-                opacity: 1,
-                duration: 1,
-                stagger: 0.2,
-                ease: "power3.out",
-            },
-        );
+        // Set initial state
+        gsap.set(elements, { opacity: 0, y: -100 });
+
+        // Animate
+        tl.to(elements, {
+            opacity: 1,
+            y: 0,
+            duration: 1,
+            stagger: 0.2,
+            ease: "power3.out",
+        });
 
         return () => {
             ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
         };
-    }, []);
+    }, [isVisible]); // Add isVisible as dependency
 
     return (
         <div

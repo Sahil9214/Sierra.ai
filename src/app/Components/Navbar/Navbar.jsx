@@ -102,14 +102,14 @@ const Navbar = () => {
                                 viewBox="0 0 24 24"
                                 fill="none"
                                 xmlns="http://www.w3.org/2000/svg"
-                                class="rotate-90 h-5 w-5"
+                                className="rotate-90 h-5 w-5"
                             >
                                 <path
                                     d="M6 10L12 4L18 10M12 5V20"
                                     stroke="currentColor"
-                                    stroke-width="2"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
+                                    strokeWidth="2"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
                                 ></path>
                             </svg>
                         </a>
@@ -151,7 +151,7 @@ const Navbar = () => {
                                 {menuItems.map((item) => (
                                     <li key={item.label}>
                                         <a
-                                            className="body-m group inline-flex h-6 items-center gap-4 rounded px-1 py-1 text-white outline-none focus-visible:text-yellow theme-tech:text-gray-400"
+                                            className="body-m group inline-flex h-6 items-center gap-4 rounded px-1 py-1 text-white outline-none focus-visible:text-yellow theme-tech:text-gray-500"
                                             href={item.href}
                                         >
                                             {item.label}
@@ -161,7 +161,7 @@ const Navbar = () => {
                             </ul>
                             <div className="flex">
                                 <a
-                                    className="body-s inline-flex items-center justify-between rounded-full outline-none transition cursor-pointer disabled:cursor-not-allowed border px-4 h-8 shrink-0 gap-4 border-white text-white hover:border-gray-200 hover:text-gray-200 theme-tech:border-gray-200 theme-tech:text-gray-400 theme-tech:hover:border-green-500 theme-tech:hover:text-green-500"
+                                    className="body-s inline-flex items-center justify-between rounded-full outline-none transition cursor-pointer disabled:cursor-not-allowed border px-4 h-8 shrink-0 gap-4 border-white text-white hover:border-gray-200 hover:text-gray-200 theme-tech:border-gray-200 theme-tech:text-gray-500 theme-tech:hover:border-green-500 theme-tech:hover:text-green-500"
                                     href="/learn-more"
                                 >
                                     Learn more

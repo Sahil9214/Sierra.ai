@@ -1,41 +1,14 @@
+/* Base Tailwind Imports */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* External Font Imports */
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap");
 
-@layer components {
-    .title-s {
-      @apply text-title-s
-             md:text-title-s-md
-             lg:text-title-s-lg;
-    }
-  
-    .body-l {
-      @apply text-body-l
-             md:text-body-l-md;
-    }
-  
-    .body-m {
-      @apply text-body-m
-             lg:text-body-m-lg;
-    }
-    .title-l {
-        @apply text-title-l
-               md:text-title-l-md;
-      }
-  }
-  
-  @layer utilities {
-    .text-pretty {
-      text-wrap: pretty;
-    }
-  }
-
-.montserrat {
-    font-family: "Montserrat", sans-serif;
-}
+/* Root Variables */
 :root {
-    --sierra-grey-background-color: #F6F5F3;
+    --sierra-grey-background-color: #f6f5f3;
     --tw-bg-opacity: 1;
     --tw-text-opacity: 1;
     --a-tag-color: rgb(98 94 91 / var(--tw-text-opacity));
@@ -43,10 +16,9 @@
         hue-rotate(349deg) brightness(92%) contrast(84%);
     --mobile-responsive-heading: 7vw;
     --mobile-responsive-trusted-brand-width-height: 20vw;
-    --filter-gray-250: brightness(0) invert(84%) sepia(7%) saturate(195%)
-        hue-rotate(349deg) brightness(92%) contrast(84%);
 }
 
+/* Dark Mode Preferences */
 @media (prefers-color-scheme: dark) {
     :root {
         --background: #0a0a0a;
@@ -54,11 +26,227 @@
     }
 }
 
-body {
-    color: var(--foreground);
-    font-family: "Montserrat", sans-serif;
+/* Typography System */
+@layer components {
+    /* Headlines */
+    .headline {
+        font-size: 32px;
+        font-weight: 400;
+        line-height: 1.1;
+        letter-spacing: -0.02em;
+    }
+
+    @media (min-width: 768px) {
+        .headline {
+            font-size: 44px;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .headline {
+            font-size: 65px;
+        }
+    }
+
+    /* Titles */
+    .title-l {
+        font-size: 26px;
+        font-weight: 400;
+        line-height: 1.1;
+        letter-spacing: -0.01em;
+    }
+
+    @media (min-width: 768px) {
+        .title-l {
+            font-size: 32px;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .title-l {
+            font-size: 44px;
+        }
+    }
+
+    .title-m {
+        font-size: 24px;
+        font-weight: 400;
+        line-height: 1.2;
+        letter-spacing: -0.01em;
+    }
+
+    @media (min-width: 768px) {
+        .title-m {
+            font-size: 28px;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .title-m {
+            font-size: 40px;
+        }
+    }
+
+    .title-s {
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 1.3;
+    }
+
+    @media (min-width: 768px) {
+        .title-s {
+            font-size: 22px;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .title-s {
+            font-size: 25px;
+        }
+    }
+
+    /* Body Text */
+    .body-l {
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 1.4;
+    }
+
+    @media (min-width: 1024px) {
+        .body-l {
+            font-size: 20px;
+        }
+    }
+
+    .body-m {
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 1.45;
+    }
+
+    @media (min-width: 1024px) {
+        .body-m {
+            font-size: 18px;
+        }
+    }
+
+    .body-s {
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.25;
+    }
+
+    @media (min-width: 768px) {
+        .body-s {
+            line-height: 1.45;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .body-s {
+            font-size: 16px;
+        }
+    }
+
+    /* Labels */
+    .label {
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 1.08;
+    }
+
+    @media (min-width: 1024px) {
+        .label {
+            font-size: 14px;
+        }
+    }
 }
 
+/* Utility classNamees */
+@layer utilities {
+    /* Text Utilities */
+    .text-pretty {
+        text-wrap: pretty;
+    }
+
+    /* Max Width Utilities */
+    .max-w-screen-3xl {
+        max-width: 1728px;
+    }
+
+    /* Font Family Utilities */
+    .text-regular {
+        font-family: var(--font-regular);
+        font-weight: 400;
+        font-style: normal;
+    }
+
+    .text-regular-italic {
+        font-family: var(--font-regular-italic);
+        font-weight: 400;
+        font-style: italic;
+    }
+
+    .text-medium-italic {
+        font-family: var(--font-medium-italic);
+        font-weight: 500;
+        font-style: italic;
+    }
+
+    .text-medium {
+        font-family: var(--font-medium);
+        font-weight: 500;
+        font-style: normal;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInFromTop {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease forwards;
+}
+
+.slide-in {
+    animation: slideInFromTop 0.5s ease forwards;
+}
+
+/* Transitions */
+.transition-transform {
+    transition-property: transform;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
+}
+
+.duration-300 {
+    transition-duration: 300ms;
+}
+
+.ease-in-out {
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Lenis Smooth Scroll */
 html.lenis {
     height: auto;
 }
@@ -75,116 +263,12 @@ html.lenis {
     overflow: hidden;
 }
 
-/* styles/globals.css or styles/yourComponent.module.css */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px); /* Adjust the translate value as needed */
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+/* Base Styles */
+body {
+    color: var(--foreground);
+    font-family: "Montserrat", sans-serif;
 }
 
-.fade-in {
-    animation: fadeIn 0.5s ease forwards; /* Adjust duration and easing as needed */
+.montserrat {
+    font-family: "Montserrat", sans-serif;
 }
-
-@keyframes slideInFromTop {
-    from {
-        opacity: 0;
-        transform: translateY(-20px); /* Adjust the translate value as needed */
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.slide-in {
-    animation: slideInFromTop 0.5s ease forwards; /* Adjust duration and easing as needed */
-}
-
-/* Add these styles for smooth transitions */
-.transition-transform {
-  transition-property: transform;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 300ms;
-}
-
-.duration-300 {
-  transition-duration: 300ms;
-}
-
-.ease-in-out {
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
-@layer utilities {
-    .text-regular {
-      font-family: var(--font-regular);
-      font-weight: 400;
-      font-style: normal;
-    }
-  
-    .text-regular-italic {
-      font-family: var(--font-regular-italic);
-      font-weight: 400;
-      font-style: italic;
-    }
-  
-    .text-medium-italic {
-      font-family: var(--font-medium-italic);
-      font-weight: 500;
-      font-style: italic;
-    }
-  
-    .text-medium {
-      font-family: var(--font-medium);
-      font-weight: 500;
-      font-style: normal;
-    }
-  }
-/* Font utility classes */
-.font-regular {
-    font-family: var(--font-regular);
-    font-weight: 400;
-    font-style: normal;
-  }
-  
-  .font-regular-italic {
-    font-family: var(--font-regular-italic);
-    font-weight: 400;
-    font-style: italic;
-  }
-  
-  .font-medium {
-    font-family: var(--font-medium);
-    font-weight: 500;
-    font-style: normal;
-  }
-  
-  .font-medium-italic {
-    font-family: var(--font-medium-italic);
-    font-weight: 500;
-    font-style: italic;
-  }
-  /* Typography variants */
-.body-s {
-    font-family: var(--font-regular); /* Using the regular font by default */
-    font-size: 14px;
-    line-height: 1.25;
-  }
-  
-  .body-s.italic {
-    font-family: var(--font-regular-italic);
-  }
-  
-  .body-s.medium {
-    font-family: var(--font-medium);
-  }
-  
-  .body-s.medium.italic {
-    font-family: var(--font-medium-italic);
-  }
-

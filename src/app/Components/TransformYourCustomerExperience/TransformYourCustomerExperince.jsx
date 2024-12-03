@@ -1,11 +1,30 @@
 /* eslint-disable prettier/prettier */
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Button from "../Buttons/Button";
 
 const TransformYourCustomerExperince = () => {
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setWindowWidth(window.innerWidth);
+        };
+
+        window.addEventListener("resize", handleResize);
+
+        // Cleanup event listener on component unmount
+        return () => {
+            window.removeEventListener("resize", handleResize);
+        };
+    }, []);
+
     return (
         <section
-            className="slide-in theme-base relative bg-white py-12 text-gray-400 theme-tech:bg-black theme-tech:text-gray-100 theme-product:bg-gray-100 theme-platform:bg-gray-200 md:py-16 lg:pt-18"
+            className={`slide-in theme-base relative
+                
+                ${windowWidth > 768 ? "py-12" : "py-4"}
+                
+                bg-white  text-gray-500 theme-tech:bg-black theme-tech:text-gray-100 theme-product:bg-gray-100 theme-platform:bg-gray-200 md:py-16 lg:pt-18`}
             style={{ zIndex: "6" }}
         >
             <div className="mx-auto max-w-screen-3xl px-4 lg:px-2.5">
@@ -25,41 +44,7 @@ const TransformYourCustomerExperince = () => {
                             problems, and take action through a natural,
                             conversational experience.
                         </p>
-                        {/* <a
-                            // className="body-s inline-flex items-center justify-between rounded-full outline-none transition cursor-pointer disabled:cursor-not-allowed border border-gray-600 text-gray-600 group-hover:border-green-500 hover:border-green-500 hover:text-green-500 group-hover:text-green-500 focus-visible:border-yellow active:border-green-300 active:text-green-300 gap-6 py-3 md:py-2 theme-tech:text-white theme-tech:border-white theme-tech:hover:text-gray-200 theme-platform:text-gray-600 theme-platform:hover:border-green-500 theme-platform:focus-visible:border-yellow theme-tech:hover:border-gray-200 theme-tech:focus-visible:border-yellow theme-tech:focus-visible:text-yellow disabled:border-gray-200 disabled:text-gray-300 px-4 mt-4 lg:mt-6"
-                            className="body-s
-                             text-sm inline-flex
-                              items-center
-                               justify-between
-                                rounded-full
-                                 outline-none
-                                 
-                                 transition cursor-pointer disabled:cursor-not-allowed border border-gray-600 text-gray-600
-                                  group-hover:border-green-500 hover:border-green-500 hover:text-green-500 group-hover:text-green-500
-                                   focus-visible:border-yellow active:border-green-300 active:text-green-300 gap-6 py-3
-                                    md:py-2 theme-tech:text-white theme-tech:border-white theme-tech:hover:text-gray-200 
-                                    theme-platform:text-gray-600 theme-platform:hover:border-green-500 
-                                    theme-platform:focus-visible:border-yellow theme-tech:hover:border-gray-200 
-                                    theme-tech:focus-visible:border-yellow theme-tech:focus-visible:text-yellow
-                                     disabled:border-gray-200 disabled:text-gray-300 px-4 mt-4 lg:mt-6"
-                            href="/product"
-                        >
-                            Our product
-                            <svg
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                                className="rotate-90 h-5 w-5"
-                            >
-                                <path
-                                    d="M6 10L12 4L18 10M12 5V20"
-                                    stroke="currentColor"
-                                    strokeWidth="2"
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                ></path>
-                            </svg>
-                        </a> */}
+
                         <Button name="Our product" />
                     </div>
                 </div>

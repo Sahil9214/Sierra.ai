@@ -76,11 +76,18 @@ module.exports = {
         'xl': '36rem',
       },
       fontFamily: {
-        'regular': ['var(--font-regular)'],
-        'regular-italic': ['var(--font-regular-italic)'],
-        'medium': ['var(--font-medium)'],
-        'medium-italic': ['var(--font-medium-italic)'],
+        // 'regular': ['var(--font-regular)'],
+        // 'regular-italic': ['var(--font-regular-italic)'],
+        // 'medium': ['var(--font-medium)'],
+        // 'medium-italic': ['var(--font-medium-italic)'],
+        gtamerica: ['var(--font-gtamerica)', 'Arial'],
       },
+      maxWidth: {
+        'screen-3xl': '1728px',
+        // Add more custom sizes if needed
+        'screen-4xl': '2048px',
+      }
+
     },
   },
   variants: {

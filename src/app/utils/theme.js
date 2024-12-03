@@ -2,7 +2,7 @@
 export const themeConfig = {
     base: {
         background: "bg-white",
-        text: "text-gray-400",
+        text: "text-gray-500",
         border: "border-gray-300",
         hover: {
             text: "hover:text-green-500",
@@ -19,7 +19,7 @@ export const themeConfig = {
     },
     platform: {
         background: "bg-white",
-        text: "text-gray-400",
+        text: "text-gray-500",
         border: "border-gray-300",
         hover: {
             text: "hover:text-green-500",
@@ -53,7 +53,7 @@ export const themeConfig = {
     },
     product: {
         background: "bg-white",
-        text: "text-gray-400",
+        text: "text-gray-500",
         border: "border-white",
         hover: {
             text: "hover:text-green-500",

@@ -11,12 +11,16 @@ const SierraSpeak = () => {
     const [isVisible, setIsVisible] = useState(false);
     const ref = useRef(null);
     const [windowWidth, setWindowWidth] = useState(0);
+    const sectionRef = useRef(null);
+    const titleRef = useRef(null);
+    const textRef = useRef(null);
+    const buttonRef = useRef(null);
 
     useEffect(() => {
         setWindowWidth(window.innerWidth);
         const handleResize = () => setWindowWidth(window.innerWidth);
-        window.addEventListener('resize', handleResize);
-        return () => window.removeEventListener('resize', handleResize);
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
     }, []);
 
     useEffect(() => {
@@ -40,45 +44,45 @@ const SierraSpeak = () => {
             }
         };
     }, []);
-    const sectionRef = useRef(null);
-    const titleRef = useRef(null);
-    const textRef = useRef(null);
-    const buttonRef = useRef(null);
 
+    // console.log(textRef);
     useEffect(() => {
         gsap.registerPlugin(ScrollTrigger);
 
-        // Create a timeline for smooth sequential animation
+        // Wait for elements to be available
+        if (!titleRef.current || !textRef.current || !sectionRef.current)
+            return;
+
+        const elements = [
+            titleRef.current,
+            textRef.current,
+            buttonRef.current,
+        ].filter(Boolean); // Filter out any null elements
+
         const tl = gsap.timeline({
             scrollTrigger: {
                 trigger: sectionRef.current,
-                start: "top 80%", // Adjust this value to change when animation starts
+                start: "top 80%",
                 toggleActions: "play none none reverse",
-                // markers: true, // Enable for debugging
             },
         });
 
-        // Add animations to timeline
-        tl.fromTo(
-            [titleRef.current, textRef.current, buttonRef.current],
-            {
-                y: -100,
-                opacity: 0,
-            },
-            {
-                y: 0,
-                opacity: 1,
-                duration: 1,
-                stagger: 0.2, // Creates a delay between each element's animation
-                ease: "power3.out",
-            },
-        );
+        // Set initial state
+        gsap.set(elements, { opacity: 0, y: -100 });
+
+        // Animate
+        tl.to(elements, {
+            opacity: 1,
+            y: 0,
+            duration: 1,
+            stagger: 0.2,
+            ease: "power3.out",
+        });
 
         return () => {
-            // Cleanup
             ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
         };
-    }, []);
+    }, [isVisible]);
 
     return (
         <div
@@ -102,13 +106,13 @@ const SierraSpeak = () => {
                             className="col-span-12 flex flex-col items-start md:col-span-10 lg:col-span-7 lg:col-start-2"
                         >
                             <h2
-                                ref={titleRef}
+                                ref={titleRef || null}
                                 className="text-[7vw] title-l text-pretty pr-4 text-black theme-tech:text-white md:pr-0 lg:text-[2.8vw]"
                             >
                                 Sierra speaks
                             </h2>
                             <p
-                                ref={textRef}
+                                ref={textRef || null}
                                 className="text-[4.5vw] body-m mt-2 text-pretty pr-4 text-gray-600 theme-tech:text-gray-100 md:max-w-[80%] md:pr-0 lg:mt-6 lg:text-[1.17vw]"
                             >
                                 Introducing voice, a new way to communicate with
