@@ -1,6 +1,5 @@
 /* eslint-disable prettier/prettier */
-/* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable prettier/prettier */
+
 "use client";
 import React, { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
@@ -8,46 +7,27 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import Button from "../Buttons/Button";
 
 const MakeAIYourOwn = () => {
-    const [isVisible, setIsVisible] = useState(false);
+    const [openTab, setOpenTab] = useState("groundAI");
     const ref = useRef(null);
     const sectionRef = useRef(null);
     const titleRef = useRef(null);
     const textRef = useRef(null);
     const buttonRef = useRef(null);
 
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-                if (entry.isIntersecting) {
-                    setIsVisible(true);
-                    observer.disconnect(); // Stop observing once visible
-                }
-            },
-            { threshold: 0.1 }, // Adjust threshold as needed
-        );
-
-        if (ref.current) {
-            observer.observe(ref.current);
-        }
-
-        return () => {
-            if (ref.current) {
-                observer.unobserve(ref.current);
-            }
-        };
-    }, []);
+    const toggleTab = (tabKey) => {
+        setOpenTab((prev) => (prev === tabKey ? prev : tabKey));
+    };
 
     useEffect(() => {
         gsap.registerPlugin(ScrollTrigger);
 
-        // Ensure elements are available before animating
         if (!titleRef.current || !textRef.current || !buttonRef.current) return;
 
         const elements = [
             titleRef.current,
             textRef.current,
             buttonRef.current,
-        ].filter(Boolean); // Filter out any null elements
+        ].filter(Boolean);
 
         const tl = gsap.timeline({
             scrollTrigger: {
@@ -57,10 +37,8 @@ const MakeAIYourOwn = () => {
             },
         });
 
-        // Set initial state
         gsap.set(elements, { opacity: 0, y: -100 });
 
-        // Animate
         tl.to(elements, {
             opacity: 1,
             y: 0,
@@ -72,19 +50,16 @@ const MakeAIYourOwn = () => {
         return () => {
             ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
         };
-    }, [isVisible]); // Add isVisible as dependency
+    }, []);
 
     return (
-        <div
-            ref={ref}
-            className={`transition-opacity ${isVisible ? "fade-in" : "opacity-0"}`}
-        >
+        <div ref={ref} className="transition-opacity">
             <div>
                 <section
-                    className="theme-platform relative  py-12  theme-tech:bg-black theme-tech:text-gray-100 theme-product:bg-gray-100 theme-platform:bg-gray-200 md:py-16 lg:py-18"
+                    className="theme-platform relative py-12 theme-tech:bg-black theme-tech:text-gray-100 theme-product:bg-gray-100 theme-platform:bg-gray-200 md:py-16 lg:py-18"
                     style={{
                         zIndex: 4,
-                        backgroundColor: "rgb(228, 224, 220, 1",
+                        backgroundColor: "rgb(228, 224, 220, 1)",
                     }}
                 >
                     <div style={{ opacity: 1, transform: "none" }}>
@@ -96,7 +71,7 @@ const MakeAIYourOwn = () => {
                                 <div className="col-span-12 flex flex-col items-start md:col-span-10 lg:col-span-7 lg:col-start-2">
                                     <h2
                                         ref={titleRef}
-                                        className=" text-[7vw]  title-l text-pretty pr-4 text-black theme-tech:text-white md:pr-0 lg:text-[2.8vw]"
+                                        className="text-[7vw] title-l text-pretty pr-4 text-black theme-tech:text-white md:pr-0 lg:text-[2.8vw]"
                                     >
                                         Make AI Your Own
                                     </h2>
@@ -115,9 +90,9 @@ const MakeAIYourOwn = () => {
                             <div className="grid grid-cols-12 gap-2 md:gap-2.5">
                                 <div className="relative col-span-12 row-start-2 md:col-span-5 md:col-start-1 md:row-start-1 lg:col-span-3 lg:col-start-2">
                                     <div
-                                        className="absolute top-0 h-6 w-full overflow-hidden rounded-2xl bg-gray-100 theme-tech:bg-gray-700 theme-product:bg-white"
+                                        className="absolute top-0 w-full overflow-hidden rounded-2xl bg-gray-100 theme-tech:bg-gray-700 theme-product:bg-white"
                                         style={{
-                                            height: "184.797px",
+                                            height: "auto",
                                             transform: "none",
                                         }}
                                     ></div>
@@ -127,24 +102,25 @@ const MakeAIYourOwn = () => {
                                         aria-orientation="horizontal"
                                         className="relative flex flex-col gap-0.5"
                                     >
+                                        {/* Ground Your AI Agent Tab */}
                                         <div
                                             tabIndex="0"
                                             data-key="84517070a64a"
                                             id="react-aria-:Rjad6bpla:-tab-84517070a64a"
-                                            aria-selected="true"
-                                            aria-controls="react-aria-:Rjad6bpla:-tabpanel-84517070a64a"
+                                            aria-selected={
+                                                openTab === "groundAI"
+                                            }
                                             role="tab"
-                                            className="group cursor-pointer
-                                             overflow-hidden
-                                              rounded-2xl 
-                                              outline-none
-                                               transition-[background-color]
-                                                bg-gray-100
-                                       
-                                                
-                                                "
-                                            data-rac=""
-                                            data-selected="true"
+                                            className={`group cursor-pointer overflow-hidden outline-none transition-[background-color] ${openTab === "groundAI" ? "bg-white rounded-3xl" : "hover:bg-white"}`}
+                                            style={{
+                                                backgroundColor:
+                                                    openTab === "groundAI"
+                                                        ? "white"
+                                                        : "rgb(228, 224, 220, 1)",
+                                            }}
+                                            onClick={() =>
+                                                toggleTab("groundAI")
+                                            }
                                         >
                                             <h3 className="body-m md:body-l text-black theme-tech:text-white">
                                                 <span className="flex gap-2 px-4 py-4 md:px-4 lg:px-6">
@@ -168,8 +144,14 @@ const MakeAIYourOwn = () => {
                                             <div
                                                 className="overflow-hidden"
                                                 style={{
-                                                    height: "auto",
-                                                    opacity: 1,
+                                                    height:
+                                                        openTab === "groundAI"
+                                                            ? "auto"
+                                                            : "0px",
+                                                    opacity:
+                                                        openTab === "groundAI"
+                                                            ? 1
+                                                            : 0,
                                                 }}
                                             >
                                                 <div>
@@ -185,16 +167,27 @@ const MakeAIYourOwn = () => {
                                                 </div>
                                             </div>
                                         </div>
+                                        {/* Solve Problems the Right Way Tab */}
                                         <div
                                             tabIndex="-1"
-                                            data-key="edd76f9ff1ba"
-                                            id="react-aria-:Rjad6bpla:-tab-edd76f9ff1ba"
-                                            aria-selected="false"
+                                            data-key="solveProblems"
+                                            id="react-aria-:Rjad6bpla:-tab-solveProblems"
+                                            aria-selected={
+                                                openTab === "solveProblems"
+                                            }
                                             role="tab"
-                                            className="group cursor-pointer overflow-hidden rounded-2xl outline-none transition-[background-color] data-[hovered]:bg-gray-100 data-[hovered]:theme-tech:bg-gray-700 data-[hovered]:theme-product:bg-white"
-                                            data-rac=""
+                                            className={`group cursor-pointer overflow-hidden outline-none transition-[background-color] ${openTab === "solveProblems" ? "bg-white rounded-3xl" : "hover:bg-white"}`}
+                                            style={{
+                                                backgroundColor:
+                                                    openTab === "solveProblems"
+                                                        ? "white"
+                                                        : "rgb(228, 224, 220, 1)",
+                                            }}
+                                            onClick={() =>
+                                                toggleTab("solveProblems")
+                                            }
                                         >
-                                            <h3 className=" body-m md:body-l text-black theme-tech:text-white lg:text-[1.35vw] mt-10">
+                                            <h3 className="body-m md:body-l text-black theme-tech:text-white lg:text-[1.35vw]">
                                                 <span className="flex gap-2 px-4 py-4 md:px-4 lg:px-6">
                                                     <svg
                                                         viewBox="0 0 24 24"
@@ -223,8 +216,16 @@ const MakeAIYourOwn = () => {
                                             <div
                                                 className="overflow-hidden"
                                                 style={{
-                                                    height: "0px",
-                                                    opacity: 0,
+                                                    height:
+                                                        openTab ===
+                                                        "solveProblems"
+                                                            ? "auto"
+                                                            : "0px",
+                                                    opacity:
+                                                        openTab ===
+                                                        "solveProblems"
+                                                            ? 1
+                                                            : 0,
                                                 }}
                                             >
                                                 <div>
@@ -240,14 +241,25 @@ const MakeAIYourOwn = () => {
                                                 </div>
                                             </div>
                                         </div>
+                                        {/* Take Action on Your Systems Tab */}
                                         <div
                                             tabIndex="-1"
                                             data-key="0542939c6a4a"
                                             id="react-aria-:Rjad6bpla:-tab-0542939c6a4a"
-                                            aria-selected="false"
+                                            aria-selected={
+                                                openTab === "takeAction"
+                                            }
                                             role="tab"
-                                            className="group cursor-pointer overflow-hidden rounded-2xl outline-none transition-[background-color] data-[hovered]:bg-gray-100 data-[hovered]:theme-tech:bg-gray-700 data-[hovered]:theme-product:bg-white"
-                                            data-rac=""
+                                            className={`group cursor-pointer overflow-hidden outline-none transition-[background-color] ${openTab === "takeAction" ? "bg-white rounded-3xl" : "hover:bg-white"}`}
+                                            style={{
+                                                backgroundColor:
+                                                    openTab === "takeAction"
+                                                        ? "white"
+                                                        : "rgb(228, 224, 220, 1)",
+                                            }}
+                                            onClick={() =>
+                                                toggleTab("takeAction")
+                                            }
                                         >
                                             <h3 className="body-m md:body-l text-black theme-tech:text-white lg:text-[1.35vw]">
                                                 <span className="flex gap-2 px-4 py-4 md:px-4 lg:px-6">
@@ -271,8 +283,14 @@ const MakeAIYourOwn = () => {
                                             <div
                                                 className="overflow-hidden"
                                                 style={{
-                                                    height: "0px",
-                                                    opacity: 0,
+                                                    height:
+                                                        openTab === "takeAction"
+                                                            ? "auto"
+                                                            : "0px",
+                                                    opacity:
+                                                        openTab === "takeAction"
+                                                            ? 1
+                                                            : 0,
                                                 }}
                                             >
                                                 <div>
@@ -306,7 +324,7 @@ const MakeAIYourOwn = () => {
                                                     autoPlay
                                                     playsInline
                                                     preload="metadata"
-                                                    // controls
+                                                    controls
                                                     muted
                                                     src="/assets/video/Speaks.mp4"
                                                     className="h-full w-full object-cover"

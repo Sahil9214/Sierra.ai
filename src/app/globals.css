@@ -25,7 +25,9 @@
         --foreground: #ededed;
     }
 }
-
+body {
+    font-family: var(--font-gtamerica);
+}
 /* Typography System */
 @layer components {
     /* Headlines */
@@ -264,11 +266,3 @@ html.lenis {
 }
 
 /* Base Styles */
-body {
-    color: var(--foreground);
-    font-family: "Montserrat", sans-serif;
-}
-
-.montserrat {
-    font-family: "Montserrat", sans-serif;
-}

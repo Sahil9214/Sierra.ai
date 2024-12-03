@@ -37,7 +37,7 @@ const TransformYourCustomerExperince = () => {
                             Transform your customer experience{" "}
                         </h2>
                         <p
-                            className="body-m mt-2 text-pretty pr-4 text-gray-600 theme-tech:text-gray-100 md:max-w-[80%] md:pr-0 lg:mt-6"
+                            className="body-m mt-2 text-pretty pr-4 text-gray-400 theme-tech:text-gray-100 md:max-w-[80%] md:pr-0 lg:mt-6"
                             //className="body-m mt-2 text-pretty pr-4 text-gray-600 theme-tech:text-gray-100 md:max-w-[80%] md:pr-0 lg:mt-6 lg:text-[1.2vw]"
                         >
                             Enable your customers to get answers, solve
@@ -144,6 +144,7 @@ const TransformYourCustomerExperince = () => {
                                 </h3>
                                 <p
                                     className="body-s pr-4 md:pr-0 lg:pb-4 text-gray-600"
+
                                     //className="body-s text-sm pr-4 md:pr-0 lg:pb-4 lg:text-[1.1vw] text-gray-600"
                                 >
                                     Deploy an AI agent that is always available,

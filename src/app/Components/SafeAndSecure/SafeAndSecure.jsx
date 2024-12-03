@@ -2,7 +2,17 @@
 
 "use client";
 import React, { useState } from "react";
-
+import Toggler from "../Toggler/Toggler";
+import {
+    SECURE_INTEGRATION_DESCRIPTION,
+    AUDITING_DESCRIPTION,
+    SUPERVISION_DESCRIPTION,
+    DATA_GOVERNANCE_DESCRIPTION,
+    SAFE_AND_SECURE_DESCRIPTION,
+    AUDITING_HEADING,
+    PRIVACY_DESCRIPTION,
+    DATA_GOVERNANCE_HEADING,
+} from "../../utils/Constant.js";
 const SafeAndSecure = () => {
     // State to manage the visibility of each dropdown
     const [openSection, setOpenSection] = useState("supervision"); // Set initial open section
@@ -15,7 +25,7 @@ const SafeAndSecure = () => {
     return (
         <div>
             <section
-                className="max-h-full lg:h-screen  theme-tech relative bg-[#222222] py-12 text-white theme-tech:bg-black theme-tech:text-gray-100 theme-product:bg-gray-100 theme-platform:bg-gray-200 md:py-16 lg:py-18"
+                className="max-h-full lg:min-h-screen  theme-tech relative bg-[#222222] py-12 text-white theme-tech:bg-black theme-tech:text-gray-100 theme-product:bg-gray-100 theme-platform:bg-gray-200 md:py-16 lg:py-18"
                 style={{ zIndex: 0 }}
             >
                 <div style={{ opacity: 1, transform: "none" }}>
@@ -25,12 +35,11 @@ const SafeAndSecure = () => {
                                 <h2 className="text-[8vw] title-l text-pretty pr-4 text-white lg:text-[2.8vw]">
                                     Safe and secure
                                 </h2>
-                                <p className="text-[4.5vw] body-m mt-2 text-pretty pr-4  theme-tech:text-gray-100 md:max-w-[80%] md:pr-0 lg:mt-6 lg:text-[1vw] text-white">
-                                    Sierra is designed with the highest
-                                    commitment to trust, security, and
-                                    compliance. Your AI agent won&rsquo;t
-                                    pretend to be something it’s not, and it
-                                    will be honest about its limitations.
+                                <p
+                                    //   className="text-[4.5vw] body-m mt-2 text-pretty pr-4  theme-tech:text-gray-100 md:max-w-[80%] md:pr-0 lg:mt-6 lg:text-[1vw] text-white"
+                                    className="body-m mt-2 text-pretty pr-4 text-white theme-tech:text-gray-100 md:max-w-[80%] md:pr-0 lg:mt-66"
+                                >
+                                    {SAFE_AND_SECURE_DESCRIPTION}
                                 </p>
                             </div>
                         </div>
@@ -65,7 +74,7 @@ const SafeAndSecure = () => {
                                                 toggleDropdown("supervision")
                                             }
                                         >
-                                            <h3 className="body-m md:body-l text-white">
+                                            <h3 className="body-m md:body-l text-white theme-tech:text-white">
                                                 <span className="flex gap-2 px-4 py-4 md:px-4 lg:px-6">
                                                     <svg
                                                         viewBox="0 0 24 24"
@@ -84,31 +93,15 @@ const SafeAndSecure = () => {
                                                     Supervision
                                                 </span>
                                             </h3>
-                                            <div
-                                                className="overflow-hidden"
-                                                style={{
-                                                    height:
-                                                        openSection ===
-                                                        "supervision"
-                                                            ? "auto"
-                                                            : "0px",
-                                                    opacity:
-                                                        openSection ===
-                                                        "supervision"
-                                                            ? 1
-                                                            : 0,
-                                                }}
-                                            >
-                                                <div>
-                                                    <p className="text-[4vw] body-s px-4 pb-5 pt-2 md:p-4 md:pt-2 lg:px-6 lg:py-4 lg:text-[0.8vw]">
-                                                        Guardrails ensure your
-                                                        agent stays on-topic,
-                                                        and real-time monitoring
-                                                        tracks live
-                                                        interactions.
-                                                    </p>
-                                                </div>
-                                            </div>
+                                            <Toggler
+                                                isOpen={
+                                                    openSection ===
+                                                    "supervision"
+                                                }
+                                                content={
+                                                    SUPERVISION_DESCRIPTION
+                                                }
+                                            />
                                         </div>
 
                                         {/* Secure Integration Section */}
@@ -128,7 +121,7 @@ const SafeAndSecure = () => {
                                                 )
                                             }
                                         >
-                                            <h3 className="body-m md:body-l text-white">
+                                            <h3 className="body-m md:body-l text-white theme-tech:text-white">
                                                 <span className="flex gap-2 px-4 py-4 md:px-4 lg:px-6">
                                                     <svg
                                                         viewBox="0 0 24 24"
@@ -147,37 +140,15 @@ const SafeAndSecure = () => {
                                                     Secure integration
                                                 </span>
                                             </h3>
-                                            <div
-                                                className="overflow-hidden"
-                                                style={{
-                                                    height:
-                                                        openSection ===
-                                                        "secureIntegration"
-                                                            ? "auto"
-                                                            : "0px",
-                                                    opacity:
-                                                        openSection ===
-                                                        "secureIntegration"
-                                                            ? 1
-                                                            : 0,
-                                                }}
-                                            >
-                                                <div>
-                                                    <p className="text-[4vw] body-s px-4 pb-5 pt-2 md:p-4 md:pt-2 lg:px-6 lg:py-4 lg:text-[0.8vw]">
-                                                        AI may be flexible, but
-                                                        security standards
-                                                        should not be. When AI
-                                                        accesses your systems of
-                                                        record, those
-                                                        interactions are
-                                                        deterministic and
-                                                        controlled to ensure
-                                                        your AI always follows
-                                                        your policies and
-                                                        security procedures.
-                                                    </p>
-                                                </div>
-                                            </div>
+                                            <Toggler
+                                                isOpen={
+                                                    openSection ===
+                                                    "secureIntegration"
+                                                }
+                                                content={
+                                                    SECURE_INTEGRATION_DESCRIPTION
+                                                }
+                                            />
                                         </div>
 
                                         {/* Auditing Section */}
@@ -194,7 +165,7 @@ const SafeAndSecure = () => {
                                                 toggleDropdown("auditing")
                                             }
                                         >
-                                            <h3 className="body-m md:body-l text-white">
+                                            <h3 className="body-m md:body-l text-white theme-tech:text-white">
                                                 <span className="flex gap-2 px-4 py-4 md:px-4 lg:px-6">
                                                     <svg
                                                         viewBox="0 0 24 24"
@@ -210,36 +181,15 @@ const SafeAndSecure = () => {
                                                             strokeLinejoin="round"
                                                         ></path>
                                                     </svg>
-                                                    Auditing
+                                                    {AUDITING_HEADING}
                                                 </span>
                                             </h3>
-                                            <div
-                                                className="overflow-hidden"
-                                                style={{
-                                                    height:
-                                                        openSection ===
-                                                        "auditing"
-                                                            ? "auto"
-                                                            : "0px",
-                                                    opacity:
-                                                        openSection ===
-                                                        "auditing"
-                                                            ? 1
-                                                            : 0,
-                                                }}
-                                            >
-                                                <div>
-                                                    <p className=" text-[4vw] body-s px-4 pb-5 pt-2 md:p-4 md:pt-2 lg:px-6 lg:py-4 text-white lg:text-[0.8vw]">
-                                                        Built-in quality
-                                                        assurance workflows
-                                                        ensure your customer
-                                                        experience team can
-                                                        understand the reasoning
-                                                        behind every AI
-                                                        interaction.
-                                                    </p>
-                                                </div>
-                                            </div>
+                                            <Toggler
+                                                isOpen={
+                                                    openSection === "auditing"
+                                                }
+                                                content={AUDITING_DESCRIPTION}
+                                            />
                                         </div>
 
                                         {/* Data Governance Section */}
@@ -256,7 +206,7 @@ const SafeAndSecure = () => {
                                                 toggleDropdown("dataGovernance")
                                             }
                                         >
-                                            <h3 className="body-m md:body-l text-white">
+                                            <h3 className="body-m md:body-l text-white theme-tech:text-white">
                                                 <span className="flex gap-2 px-4 py-4 md:px-4 lg:px-6">
                                                     <svg
                                                         viewBox="0 0 24 24"
@@ -269,37 +219,18 @@ const SafeAndSecure = () => {
                                                             fill="currentColor"
                                                         ></path>
                                                     </svg>
-                                                    Data governance
+                                                    {DATA_GOVERNANCE_HEADING}
                                                 </span>
                                             </h3>
-                                            <div
-                                                className="overflow-hidden"
-                                                style={{
-                                                    height:
-                                                        openSection ===
-                                                        "dataGovernance"
-                                                            ? "auto"
-                                                            : "0px",
-                                                    opacity:
-                                                        openSection ===
-                                                        "dataGovernance"
-                                                            ? 1
-                                                            : 0,
-                                                }}
-                                            >
-                                                <div>
-                                                    <p className="text-[4vw] body-s px-4 pb-5 pt-2 md:p-4 md:pt-2 lg:px-6 lg:py-4 text-white lg:text-[0.8vw]">
-                                                        Your data is only used
-                                                        for your company’s
-                                                        agent. We don’t use your
-                                                        data to train models,
-                                                        and we use industry
-                                                        standard best practices
-                                                        to ensure your data is
-                                                        secure.
-                                                    </p>
-                                                </div>
-                                            </div>
+                                            <Toggler
+                                                isOpen={
+                                                    openSection ===
+                                                    "dataGovernance"
+                                                }
+                                                content={
+                                                    DATA_GOVERNANCE_DESCRIPTION
+                                                }
+                                            />
                                         </div>
 
                                         {/* Privacy Section */}
@@ -316,7 +247,7 @@ const SafeAndSecure = () => {
                                                 toggleDropdown("privacy")
                                             }
                                         >
-                                            <h3 className="body-m md:body-l text-white">
+                                            <h3 className="body-m md:body-l text-white theme-tech:text-white">
                                                 <span className="flex gap-2 px-4 py-4 md:px-4 lg:px-6">
                                                     <svg
                                                         viewBox="0 0 24 24"
@@ -335,30 +266,12 @@ const SafeAndSecure = () => {
                                                     Privacy
                                                 </span>
                                             </h3>
-                                            <div
-                                                className="overflow-hidden"
-                                                style={{
-                                                    height:
-                                                        openSection ===
-                                                        "privacy"
-                                                            ? "auto"
-                                                            : "0px",
-                                                    opacity:
-                                                        openSection ===
-                                                        "privacy"
-                                                            ? 1
-                                                            : 0,
-                                                }}
-                                            >
-                                                <div>
-                                                    <p className="body-s px-4 pb-5 pt-2 md:p-4 md:pt-2 lg:px-6 lg:py-4">
-                                                        Personally identifiable
-                                                        information is
-                                                        automatically encrypted
-                                                        and masked.
-                                                    </p>
-                                                </div>
-                                            </div>
+                                            <Toggler
+                                                isOpen={
+                                                    openSection === "privacy"
+                                                }
+                                                content={PRIVACY_DESCRIPTION}
+                                            />
                                         </div>
                                     </div>
                                 </div>
