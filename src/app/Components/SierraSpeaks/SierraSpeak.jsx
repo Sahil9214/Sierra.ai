@@ -24,7 +24,7 @@ const SierraSpeak = () => {
 
     // True means audio is on, false means muted
     const [isAudioOn, setIsAudioOn] = useState(false);
-    // True means playing, false means paused  
+    // True means playing, false means paused
     const [isPlaying, setIsPlaying] = useState(true);
 
     const ref = useRef(null);
@@ -184,8 +184,14 @@ const SierraSpeak = () => {
                                             <div className="flex items-center gap-2">
                                                 <div className="flex">
                                                     <button
-                                                        onClick={handlePlayPause}
-                                                        aria-label={isPlaying ? "Pause video" : "Play video"}
+                                                        onClick={
+                                                            handlePlayPause
+                                                        }
+                                                        aria-label={
+                                                            isPlaying
+                                                                ? "Pause video"
+                                                                : "Play video"
+                                                        }
                                                         className="group pointer-events-auto flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-gray-300/45 p-1 outline-none transition duration-300 hover:bg-white focus-visible:bg-white group-hover:bg-white"
                                                     >
                                                         <span className="rounded-full border border-white p-2 text-white transition duration-300 group-hover:border-green-500 group-hover:text-green-500 group-focus-visible:border-yellow group-focus-visible:text-yellow">
@@ -213,12 +219,12 @@ const SierraSpeak = () => {
                                                                     <path
                                                                         d="M4.75 3.75H9.25V20.25H4.75V3.75Z"
                                                                         stroke="currentColor"
-                                                                        stroke-width="2"
+                                                                        strokeWidth="2"
                                                                     ></path>
                                                                     <path
                                                                         d="M14.75 3.75H19.25V20.25H14.75V3.75Z"
                                                                         stroke="currentColor"
-                                                                        stroke-width="2"
+                                                                        strokeWidth="2"
                                                                     ></path>
                                                                 </svg>
                                                             )}
@@ -229,7 +235,11 @@ const SierraSpeak = () => {
                                             <div className="flex items-center gap-2">
                                                 <button
                                                     onClick={handleAudioToggle}
-                                                    aria-label={isAudioOn ? "Mute audio" : "Unmute audio"}
+                                                    aria-label={
+                                                        isAudioOn
+                                                            ? "Mute audio"
+                                                            : "Unmute audio"
+                                                    }
                                                     className="group pointer-events-auto flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-gray-300/45 p-1 outline-none transition duration-300 hover:bg-white focus-visible:bg-white group-hover:bg-white"
                                                 >
                                                     <span className="rounded-full border border-white p-2 text-white transition duration-300 group-hover:border-green-500 group-hover:text-green-500 group-focus-visible:border-yellow group-focus-visible:text-yellow">
@@ -238,7 +248,7 @@ const SierraSpeak = () => {
                                                                 viewBox="0 0 24 24"
                                                                 fill="none"
                                                                 xmlns="http://www.w3.org/2000/svg"
-                                                                class="w-4"
+                                                                className="w-4"
                                                             >
                                                                 <path
                                                                     d="M13 3.75003C13 3.47584 12.8504 3.22366 12.61 3.09204C12.3697 2.96055 12.0766 2.97054 11.8457 3.11823L5.7806 7.00001H1.75005C1.33573 7.00001 1 7.33576 1 7.74994V16.2499C1 16.6642 1.33573 17 1.75005 17H5.7806L11.8457 20.8816C12.0766 21.0295 12.3697 21.0395 12.61 20.9078C12.8504 20.7763 13 20.524 13 20.25V3.75003Z"
@@ -258,7 +268,7 @@ const SierraSpeak = () => {
                                                                 viewBox="0 0 24 24"
                                                                 fill="none"
                                                                 xmlns="http://www.w3.org/2000/svg"
-                                                                class="w-4"
+                                                                className="w-4"
                                                             >
                                                                 <path
                                                                     fillRule="evenodd"

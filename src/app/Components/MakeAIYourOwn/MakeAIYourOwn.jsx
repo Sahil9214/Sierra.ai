@@ -389,12 +389,12 @@ const MakeAIYourOwn = () => {
                                                                             <path
                                                                                 d="M4.75 3.75H9.25V20.25H4.75V3.75Z"
                                                                                 stroke="currentColor"
-                                                                                stroke-width="2"
+                                                                                strokeWidth="2"
                                                                             ></path>
                                                                             <path
                                                                                 d="M14.75 3.75H19.25V20.25H14.75V3.75Z"
                                                                                 stroke="currentColor"
-                                                                                stroke-width="2"
+                                                                                strokeWidth="2"
                                                                             ></path>
                                                                         </svg>
                                                                     )}
