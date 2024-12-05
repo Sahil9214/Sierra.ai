@@ -86,13 +86,17 @@ module.exports = {
         'screen-3xl': '1728px',
         // Add more custom sizes if needed
         'screen-4xl': '2048px',
-      }
+      },
+      backgroundColor: {
+        'gray-100': 'rgb(243, 244, 246)',
+        'gray-700': 'rgb(55, 65, 81)',
+      },
 
     },
   },
   variants: {
     extend: {
-      backgroundColor: ['theme-tech', 'theme-platform', 'theme-product'],
+      backgroundColor: ['theme-tech', 'theme-platform', 'theme-product', "hover", "data-hoverd"],
       textColor: ['theme-tech', 'theme-platform', 'theme-product'],
       borderColor: ['theme-tech', 'theme-platform', 'theme-product'],
     },

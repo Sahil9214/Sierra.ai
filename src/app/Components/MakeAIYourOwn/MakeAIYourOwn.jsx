@@ -170,6 +170,14 @@ const MakeAIYourOwn = () => {
                                                         openTab === "groundAI"
                                                             ? 1
                                                             : 0,
+                                                    transform:
+                                                        openTab === "groundAI"
+                                                            ? "translateY(0)"
+                                                            : "translateY(-20px)",
+                                                    transitionDelay:
+                                                        openTab === "groundAI"
+                                                            ? "0.1s"
+                                                            : "0s",
                                                 }}
                                             >
                                                 <div>
@@ -242,6 +250,16 @@ const MakeAIYourOwn = () => {
                                                         "solveProblems"
                                                             ? 1
                                                             : 0,
+                                                    transform:
+                                                        openTab ===
+                                                        "solveProblems"
+                                                            ? "translateY(0)"
+                                                            : "translateY(-20px)",
+                                                    transitionDelay:
+                                                        openTab ===
+                                                        "solveProblems"
+                                                            ? "0.1s"
+                                                            : "0s",
                                                 }}
                                             >
                                                 <div>
@@ -262,7 +280,8 @@ const MakeAIYourOwn = () => {
                                                 openTab === "takeAction"
                                             }
                                             role="tab"
-                                            className={`group cursor-pointer overflow-hidden outline-none transition-[background-color] ${openTab === "takeAction" ? "bg-white rounded-3xl" : "hover:bg-white"}`}
+                                            className={`group cursor-pointer overflow-hidden outline-none
+                                                 transition-[background-color] ${openTab === "takeAction" ? "bg-white rounded-3xl" : "hover:bg-white"}`}
                                             style={{
                                                 backgroundColor:
                                                     openTab === "takeAction"
@@ -305,6 +324,14 @@ const MakeAIYourOwn = () => {
                                                         openTab === "takeAction"
                                                             ? 1
                                                             : 0,
+                                                    transform:
+                                                        openTab === "takeAction"
+                                                            ? "translateY(0)"
+                                                            : "translateY(-20px)",
+                                                    transitionDelay:
+                                                        openTab === "takeAction"
+                                                            ? "0.1s"
+                                                            : "0s",
                                                 }}
                                             >
                                                 <div>
