@@ -28,8 +28,8 @@ const WeightWatcher = () => {
                                             alt="Headshot of Maureen Martin"
                                             loading="lazy"
                                             decoding="async"
-                                            layout="fill"
-                                            objectFit="cover"
+                                            fill
+                                            cover
                                             className="block h-auto w-full object-cover bg-gray-300"
                                             sizes="(min-width: 769px) 20vw, 100vw"
                                             src="https://sierra.ai/-/cdn/image?src=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fca4jck6w%2Fproduction%2F95d87e167f832084288f50b1c7e02ef2aaf0061d-1041x780.png&amp;width=3840&amp;quality=90"
