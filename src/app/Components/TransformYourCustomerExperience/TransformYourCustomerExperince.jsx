@@ -37,7 +37,7 @@ const TransformYourCustomerExperince = () => {
 
     return (
         <section
-            className="theme-base relative bg-white py-12 text-gray-400 theme-tech:bg-black theme-tech:text-gray-100 theme-product:bg-gray-100 theme-platform:bg-gray-200 md:py-16 lg:py-18"
+            className="theme-base relative bg-white py-12 text-gray-500 theme-tech:bg-black theme-tech:text-gray-100 theme-product:bg-gray-100 theme-platform:bg-gray-200 md:py-16 lg:py-18"
             style={{ zIndex: "6" }}
         >
             <div className="mx-auto max-w-screen-3xl px-4 lg:px-2.5">
@@ -46,7 +46,7 @@ const TransformYourCustomerExperince = () => {
                         <h2 className="title-l text-pretty pr-4 text-black theme-tech:text-white md:pr-0">
                             {TRANSFORM_YOUR_CUSTOMER_EXPERIENCE_HEADING}
                         </h2>
-                        <p className="body-m mt-2 text-pretty pr-4 text-gray-400 theme-tech:text-gray-100 md:max-w-[80%] md:pr-0 lg:mt-6">
+                        <p className="body-m mt-2 text-pretty pr-4 text-gray-500 theme-tech:text-gray-100 md:max-w-[80%] md:pr-0 lg:mt-6">
                             {TRANSFORM_YOUR_CUSTOMER_EXPERIENCE_DESCRIPTION}
                         </p>
 
@@ -131,7 +131,7 @@ const TransformYourCustomerExperince = () => {
                     <div className="col-span-12 md:col-span-5 lg:col-span-3 md:col-start-8 lg:col-start-9 ">
                         <ul className="flex flex-col gap-6">
                             <li>
-                                <h3 className="body-m md:body-l flex gap-2 text-black theme-tech:text-white lg:py-4 mb-3 py-0 md:mb-0 sm:text-[2.2vw] lg:text-[1.2vw]">
+                                <h3 className="body-m md:body-l flex gap-2 text-black theme-tech:text-white lg:py-4 mb-3 py-0 md:mb-0">
                                     <svg
                                         viewBox="0 0 24 24"
                                         fill="none"
@@ -159,12 +159,12 @@ const TransformYourCustomerExperince = () => {
                                     </svg>
                                     {ENGAGE_AND_DELIGHT_CUSTOMERS_HEADING}
                                 </h3>
-                                <p className="body-s pr-4 md:pr-0 lg:pb-4 text-gray-600">
+                                <p className="body-s pr-4 md:pr-0 lg:pb-4 text-gray-500">
                                     {ENGAGE_AND_DELIGHT_CUSTOMERS_DESCRIPTION}
                                 </p>
                             </li>
                             <li>
-                                <h3 className="body-m md:body-l flex gap-2 text-black theme-tech:text-white lg:py-4 mb-3 py-0 md:mb-0 sm:text-[2.2vw] lg:text-[1.2vw]">
+                                <h3 className="body-m md:body-l flex gap-2 text-black theme-tech:text-white lg:py-4 mb-3 py-0 md:mb-0">
                                     <svg
                                         viewBox="0 0 24 24"
                                         fill="none"
@@ -183,14 +183,14 @@ const TransformYourCustomerExperince = () => {
                                         SUPPORT_YOUR_CUSTOMERS_IN_REAL_TIME_HEADING
                                     }
                                 </h3>
-                                <p className="body-s pr-4 md:pr-0 lg:pb-4 text-gray-600">
+                                <p className="body-s pr-4 md:pr-0 lg:pb-4 text-gray-500">
                                     {
                                         SUPPORT_YOUR_CUSTOMERS_IN_REAL_TIME_DESCRIPTION
                                     }
                                 </p>
                             </li>
                             <li>
-                                <h3 className="body-m md:body-l flex gap-2 text-black theme-tech:text-white lg:py-4 mb-3 py-0 md:mb-0 sm:text-[2.2vw] lg:text-[1.2vw]">
+                                <h3 className="body-m md:body-l flex gap-2 text-black theme-tech:text-white lg:py-4 mb-3 py-0 md:mb-0">
                                     <svg
                                         viewBox="0 0 24 24"
                                         fill="none"
@@ -207,7 +207,7 @@ const TransformYourCustomerExperince = () => {
                                     </svg>
                                     {ADAPT_AND_GET_BETTER_FASTER_HEADING}
                                 </h3>
-                                <p className="body-s pr-4 md:pr-0 lg:pb-4 text-gray-600">
+                                <p className="body-s pr-4 md:pr-0 lg:pb-4 text-gray-500">
                                     {ADAPT_AND_GET_BETTER_FASTER_DESCRIPTION}
                                 </p>
                             </li>

@@ -65,7 +65,7 @@ const Navbar = () => {
                                 {menuItems.map((item) => (
                                     <a
                                         key={item.label}
-                                        className="text-gray-600 hover:text-green-500 transition-colors duration-200"
+                                        className="text-gray-500 hover:text-green-500 transition-colors duration-200"
                                         href={item.href}
                                     >
                                         {item.label}

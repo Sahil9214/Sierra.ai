@@ -83,7 +83,7 @@ const TrustedBrands = () => {
                     <div className="col-span-12 flex flex-col gap-6 md:gap-6 lg:col-span-10 lg:col-start-2 lg:gap-12 xl:flex-row xl:items-center xl:gap-[110px]">
                         <h2
                             ref={titleRef}
-                            className="body-m shrink-0 text-gray-600 theme-tech:text-gray-100"
+                            className="body-m shrink-0 text-gray-500 theme-tech:text-gray-100"
                         >
                             {TRUSTED_BY_LEADING_BRAND_SUBHEADING}
                         </h2>
