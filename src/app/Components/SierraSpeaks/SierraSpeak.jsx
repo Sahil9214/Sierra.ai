@@ -140,17 +140,13 @@ const SierraSpeak = () => {
                             <h2
                                 ref={titleRef || null}
                                 // className="text-[7vw] title-l text-pretty pr-4 text-black theme-tech:text-white md:pr-0 lg:text-[2.8vw]"
-                                className="title-l text-pretty pr-4  theme-tech:text-white md:pr-0"
-                                style={{
-                                    color: "rgba(34,34,34,1)",
-                                    opacity: 1,
-                                }}
+                                className="title-l text-pretty pr-4 text-black theme-tech:text-white md:pr-0"
                             >
                                 {SIERRA_SPEAKS_HEADING}
                             </h2>
                             <p
                                 ref={textRef || null}
-                                className="body-m mt-2 text-pretty pr-4 text-gray-500 theme-tech:text-gray-100 md:max-w-[80%] md:pr-0 lg:mt-6"
+                                className="body-m mt-2 text-pretty  pr-4 text-gray-500 theme-tech:text-gray-100 md:max-w-[80%] md:pr-0 lg:mt-6"
                             >
                                 {SIERRA_SPEAKS_DESCRIPTION}
                             </p>
