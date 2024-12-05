@@ -161,15 +161,16 @@ const HeroSection = () => {
                                             autoPlay
                                             playsInline
                                             preload="metadata"
+                                            // controls
                                             muted
                                             src={
-                                                windowWidth < 768
-                                                    ? "https:sierra.ai/api/video?src=https%3A%2F%2Fcdn.sanity.io%2Ffiles%2Fca4jck6w%2Fproduction%2F241aead84eb6128e26b40905d3cf36d831763dce.mp4"
+                                                window.innerWidth < 768
+                                                    ? "https://sierra.ai/api/video?src=https%3A%2F%2Fcdn.sanity.io%2Ffiles%2Fca4jck6w%2Fproduction%2F241aead84eb6128e26b40905d3cf36d831763dce.mp4"
                                                     : "/assets/video/LandingPage.mp4"
                                             }
-                                            className="h-full w-full object-cover"
-                                            id="hero-video"
-                                        />
+                                            className="h-full w-full object-cover "
+                                            id=":R236bpla:"
+                                        ></video>
                                     </button>
                                 </div>
                             </div>
