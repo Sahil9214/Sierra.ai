@@ -5,6 +5,7 @@
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import { TRUSTED_BY_LEADING_BRAND_SUBHEADING } from "../../utils/Constant";
 
 const TrustedBrands = () => {
     const titleRef = useRef(null);
@@ -84,7 +85,7 @@ const TrustedBrands = () => {
                             ref={titleRef}
                             className="body-m shrink-0 text-gray-600 theme-tech:text-gray-100"
                         >
-                            Trusted by leading brands
+                            {TRUSTED_BY_LEADING_BRAND_SUBHEADING}
                         </h2>
                         <ul
                             ref={logoGridRef}

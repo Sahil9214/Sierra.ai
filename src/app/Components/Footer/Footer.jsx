@@ -1,9 +1,25 @@
 /* eslint-disable prettier/prettier */
 /* eslint-disable @next/next/no-html-link-for-pages */
 /* eslint-disable prettier/prettier */
+"use client";
 import React from "react";
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+
+import {
+    ABOUT,
+    CAREERS,
+    COMPANY,
+    CONVERSATIONAL_AI,
+    COOKIE_PREFERENCES,
+    CUSTOMERS,
+    LEARN_MORE,
+    LINKEDIN,
+    PLATFORM,
+    PRIVACY_POLICY,
+    PRODUCT,
+    SEE_WHAT_SIERRA_CAN_DO_FOR_YOU,
+    SEE_WHAT_SIERRA_CAN_DO_FOR_YOU_DESCRIPTION,
+    VOICE,
+} from "../../utils/Constant";
 
 const Footer = () => {
     return (
@@ -14,22 +30,20 @@ const Footer = () => {
                 className="theme-base relative bg-white py-12 theme-tech:bg-black theme-tech:text-gray-100 theme-product:bg-gray-100 theme-platform:bg-gray-200 md:py-16 lg:py-18 text-black"
                 style={{ zIndex: 1 }}
             >
-                <div className="mx-auto max-w-screen-3xl  px-0 lg:px-2.5">
-                    <div className="mx-auto max-w-5xl">
+                <div className="mx-auto max-w-screen-3xl px-4 lg:px-2.5 ">
+                    <div className="w-full sm:mx-auto max-w-5xl">
                         <h2 className="headline mb-8 w-full text-center">
-                            See what Sierra can do for you.
+                            {SEE_WHAT_SIERRA_CAN_DO_FOR_YOU}
                         </h2>
-                        <p className="text-[16.5px] sm:body-l mb-8 w-full   text-center md:mb-18 0">
-                            Find out how Sierra can help your company transform
-                            the customer experience with our conversational AI
-                            agents.
+                        <p className="body-l mx-auto mb-8 w-[100%] sm:w-[80%] md:w-[60%] max-w-prose text-center md:mb-18 ">
+                            {SEE_WHAT_SIERRA_CAN_DO_FOR_YOU_DESCRIPTION}
                         </p>
                         <div className="flex justify-center">
                             <a
-                                className="body-s inline-flex items-center justify-between rounded-full outline-none transition cursor-pointer disabled:cursor-not-allowed bg-green-900 text-white hover:bg-transparent hover:text-green-500 border border-green-500 focus-visible:bg-transparent focus-visible:border-yellow focus-visible:text-yellow gap-12 px-4 py-3 md:px-8 md:py-4 active:bg-green-300 active:border-green-300 disabled:bg-gray-300 disabled:border-gray-300 disabled:text-white"
-                                href="/learn-more"
+                                className="body-s inline-flex items-center justify-between rounded-full outline-none transition cursor-pointer disabled:cursor-not-allowed bg-green-800 text-white hover:bg-transparent hover:text-green-500 border border-green-800 focus-visible:bg-transparent focus-visible:border-yellow focus-visible:text-yellow gap-12 px-4 py-3 md:px-8 md:py-4 active:bg-green-300 active:border-green-300 disabled:bg-gray-300 disabled:border-gray-300 disabled:text-white"
+                                href="#"
                             >
-                                Learn more
+                                {LEARN_MORE}
                                 <svg
                                     viewBox="0 0 24 24"
                                     fill="none"
@@ -42,7 +56,7 @@ const Footer = () => {
                                         strokeWidth="2"
                                         strokeLinecap="round"
                                         strokeLinejoin="round"
-                                    ></path>
+                                    />
                                 </svg>
                             </a>
                         </div>
@@ -81,8 +95,8 @@ const FooterPart = () => {
                     </div>
                     <div className="col-span-12 grid grid-cols-subgrid gap-y-8 md:col-span-9 md:gap-y-18 lg:col-span-8">
                         <div className="col-span-6 flex flex-col gap-4 md:col-span-3 lg:col-span-2">
-                            <h3 className="text-gray-600 font-medium theme-tech:text-gray-100">
-                                Conversational AI
+                            <h3 className="text-gray-500  theme-tech:text-gray-100">
+                                {CONVERSATIONAL_AI}
                             </h3>
                             <ul className="flex flex-col gap-4">
                                 <li className="body-s">
@@ -90,7 +104,7 @@ const FooterPart = () => {
                                         className="before relative py-1 text-gray-500 outline-none transition-colors duration-200 hover:text-green-500 focus-visible:text-yellow focus-visible:before:absolute focus-visible:before:-left-2 focus-visible:before:top-0 focus-visible:before:h-full focus-visible:before:w-[calc(100%+1rem)] focus-visible:before:rounded-full focus-visible:before:border focus-visible:before:border-yellow focus-visible:before:px-2 focus-visible:before:content-[''] active:text-green-300 theme-tech:focus-visible:text-yellow theme-tech:text-gray-100 theme-tech:hover:text-gray-300"
                                         href="/product"
                                     >
-                                        Product
+                                        {PRODUCT}
                                     </a>
                                 </li>
                                 <li className="body-s">
@@ -98,7 +112,7 @@ const FooterPart = () => {
                                         className="before relative py-1 text-gray-500 outline-none transition-colors duration-200 hover:text-green-500 focus-visible:text-yellow focus-visible:before:absolute focus-visible:before:-left-2 focus-visible:before:top-0 focus-visible:before:h-full focus-visible:before:w-[calc(100%+1rem)] focus-visible:before:rounded-full focus-visible:before:border focus-visible:before:border-yellow focus-visible:before:px-2 focus-visible:before:content-[''] active:text-green-300 theme-tech:focus-visible:text-yellow theme-tech:text-gray-100 theme-tech:hover:text-gray-300"
                                         href="/platform"
                                     >
-                                        Platform
+                                        {PLATFORM}
                                     </a>
                                 </li>
                                 <li className="body-s">
@@ -106,14 +120,17 @@ const FooterPart = () => {
                                         className="before relative py-1 text-gray-500 outline-none transition-colors duration-200 hover:text-green-500 focus-visible:text-yellow focus-visible:before:absolute focus-visible:before:-left-2 focus-visible:before:top-0 focus-visible:before:h-full focus-visible:before:w-[calc(100%+1rem)] focus-visible:before:rounded-full focus-visible:before:border focus-visible:before:border-yellow focus-visible:before:px-2 focus-visible:before:content-[''] active:text-green-300 theme-tech:focus-visible:text-yellow theme-tech:text-gray-100 theme-tech:hover:text-gray-300"
                                         href="/voice"
                                     >
-                                        Voice
+                                        {VOICE}
                                     </a>
                                 </li>
                             </ul>
                         </div>
                         <div className="col-span-6 flex flex-col gap-4 md:col-span-3 lg:col-span-2">
-                            <h3 className="text-gray-600 font-medium theme-tech:text-gray-100">
-                                Customers
+                            <h3
+                                className="text-gray-500 
+                             theme-tech:text-gray-100"
+                            >
+                                {CUSTOMERS}
                             </h3>
                             <ul className="flex flex-col gap-4">
                                 <li className="body-s">
@@ -127,8 +144,11 @@ const FooterPart = () => {
                             </ul>
                         </div>
                         <div className="col-span-6 flex flex-col gap-4 md:col-span-3 lg:col-span-2">
-                            <h3 className="text-gray-600 font-medium theme-tech:text-gray-100">
-                                Company
+                            <h3
+                                className="text-gray-500 
+                             theme-tech:text-gray-100"
+                            >
+                                {COMPANY}
                             </h3>
                             <ul className="flex flex-col gap-4">
                                 <li className="body-s">
@@ -136,7 +156,7 @@ const FooterPart = () => {
                                         className="before relative py-1 text-gray-500 outline-none transition-colors duration-200 hover:text-green-500 focus-visible:text-yellow focus-visible:before:absolute focus-visible:before:-left-2 focus-visible:before:top-0 focus-visible:before:h-full focus-visible:before:w-[calc(100%+1rem)] focus-visible:before:rounded-full focus-visible:before:border focus-visible:before:border-yellow focus-visible:before:px-2 focus-visible:before:content-[''] active:text-green-300 theme-tech:focus-visible:text-yellow theme-tech:text-gray-100 theme-tech:hover:text-gray-300"
                                         href="/about"
                                     >
-                                        About
+                                        {ABOUT}
                                     </a>
                                 </li>
                                 <li className="body-s">
@@ -152,7 +172,7 @@ const FooterPart = () => {
                                         className="before relative py-1 text-gray-500 outline-none transition-colors duration-200 hover:text-green-500 focus-visible:text-yellow focus-visible:before:absolute focus-visible:before:-left-2 focus-visible:before:top-0 focus-visible:before:h-full focus-visible:before:w-[calc(100%+1rem)] focus-visible:before:rounded-full focus-visible:before:border focus-visible:before:border-yellow focus-visible:before:px-2 focus-visible:before:content-[''] active:text-green-300 theme-tech:focus-visible:text-yellow theme-tech:text-gray-100 theme-tech:hover:text-gray-300"
                                         href="/careers"
                                     >
-                                        Careers
+                                        {CAREERS}
                                     </a>
                                 </li>
                                 <li className="body-s">
@@ -168,7 +188,7 @@ const FooterPart = () => {
                                         className="before relative py-1 text-gray-500 outline-none transition-colors duration-200 hover:text-green-500 focus-visible:text-yellow focus-visible:before:absolute focus-visible:before:-left-2 focus-visible:before:top-0 focus-visible:before:h-full focus-visible:before:w-[calc(100%+1rem)] focus-visible:before:rounded-full focus-visible:before:border focus-visible:before:border-yellow focus-visible:before:px-2 focus-visible:before:content-[''] active:text-green-300 theme-tech:focus-visible:text-yellow theme-tech:text-gray-100 theme-tech:hover:text-gray-300"
                                         href="/privacy-policy"
                                     >
-                                        Privacy Policy
+                                        {PRIVACY_POLICY}
                                     </a>
                                 </li>
                                 <li className="body-s">
@@ -176,13 +196,16 @@ const FooterPart = () => {
                                         className="before relative py-1 text-gray-500 outline-none transition-colors duration-200 hover:text-green-500 focus-visible:text-yellow focus-visible:before:absolute focus-visible:before:-left-2 focus-visible:before:top-0 focus-visible:before:h-full focus-visible:before:w-[calc(100%+1rem)] focus-visible:before:rounded-full focus-visible:before:border focus-visible:before:border-yellow focus-visible:before:px-2 focus-visible:before:content-[''] active:text-green-300 theme-tech:focus-visible:text-yellow theme-tech:text-gray-100 theme-tech:hover:text-gray-300"
                                         href="#manage-cookies"
                                     >
-                                        Cookie Preferences
+                                        {COOKIE_PREFERENCES}
                                     </a>
                                 </li>
                             </ul>
                         </div>
                         <div className="col-span-6 flex flex-col gap-4 md:col-span-3 lg:col-span-2">
-                            <h3 className="text-gray-600 font-medium theme-tech:text-gray-100">
+                            <h3
+                                className="text-gray-500 
+                             theme-tech:text-gray-100"
+                            >
                                 Social
                             </h3>
                             <ul className="flex flex-col gap-4">
@@ -193,7 +216,7 @@ const FooterPart = () => {
                                         className="before relative py-1 text-gray-500 outline-none transition-colors duration-200 hover:text-green-500 focus-visible:text-yellow focus-visible:before:absolute focus-visible:before:-left-2 focus-visible:before:top-0 focus-visible:before:h-full focus-visible:before:w-[calc(100%+1rem)] focus-visible:before:rounded-full focus-visible:before:border focus-visible:before:border-yellow focus-visible:before:px-2 focus-visible:before:content-[''] active:text-green-300 theme-tech:focus-visible:text-yellow theme-tech:text-gray-100 theme-tech:hover:text-gray-300"
                                         href="https://www.linkedin.com/company/sierra"
                                     >
-                                        LinkedIn
+                                        {LINKEDIN}
                                     </a>
                                 </li>
                                 <li className="body-s">

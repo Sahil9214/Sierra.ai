@@ -8,7 +8,7 @@
 
 /* Root Variables */
 :root {
-    --sierra-grey-background-color: #f6f5f3;
+    --sierra-grey-background-color: rgb(231, 230, 228);
     --tw-bg-opacity: 1;
     --tw-text-opacity: 1;
     --a-tag-color: rgb(98 94 91 / var(--tw-text-opacity));
@@ -16,6 +16,7 @@
         hue-rotate(349deg) brightness(92%) contrast(84%);
     --mobile-responsive-heading: 7vw;
     --mobile-responsive-trusted-brand-width-height: 20vw;
+    --rem: 16;
 }
 
 /* Dark Mode Preferences */

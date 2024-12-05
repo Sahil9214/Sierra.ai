@@ -5,9 +5,22 @@ import React, { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import Button from "../Buttons/Button";
+import {
+    GROUND_YOUR_AI_AGENT_DESCRIPTION,
+    GROUND_YOUR_AI_AGENT_HEADING,
+    MAKE_AI_YOUR_OWN_DESCRIPTION,
+    MAKE_AI_YOUR_OWN_HEADING,
+    SIERRA_SPEAKS_DESCRIPTION,
+    SIERRA_SPEAKS_HEADING,
+    SOLVE_PROBLEMS_THE_RIGHT_WAY_DESCRIPTION,
+    SOLVE_PROBLEMS_THE_RIGHT_WAY_HEADING,
+    TAKE_ACTION_ON_YOUR_SYSTEMS_DESCRIPTION,
+    TAKE_ACTION_ON_YOUR_SYSTEMS_HEADING,
+} from "../../utils/Constant";
 
 const MakeAIYourOwn = () => {
     const [openTab, setOpenTab] = useState("groundAI");
+    const [videomute, setVideomute] = useState(false);
     const ref = useRef(null);
     const sectionRef = useRef(null);
     const titleRef = useRef(null);
@@ -16,6 +29,9 @@ const MakeAIYourOwn = () => {
 
     const toggleTab = (tabKey) => {
         setOpenTab((prev) => (prev === tabKey ? prev : tabKey));
+    };
+    const handleMakeOwnVideoMutedOrNot = () => {
+        setVideomute(!videomute);
     };
 
     useEffect(() => {
@@ -71,18 +87,17 @@ const MakeAIYourOwn = () => {
                                 <div className="col-span-12 flex flex-col items-start md:col-span-10 lg:col-span-7 lg:col-start-2">
                                     <h2
                                         ref={titleRef}
-                                        className="text-[7vw] title-l text-pretty pr-4 text-black theme-tech:text-white md:pr-0 lg:text-[2.8vw]"
+                                        // className="text-[7vw] title-l text-pretty pr-4 text-black theme-tech:text-white md:pr-0 lg:text-[2.8vw]"
+                                        className="title-l text-pretty pr-4 text-black theme-tech:text-white md:pr-0"
                                     >
-                                        Make AI Your Own
+                                        {MAKE_AI_YOUR_OWN_HEADING}
                                     </h2>
                                     <p
                                         ref={textRef}
-                                        className="text-[4.5vw] body-m mt-2 text-pretty pr-4 text-gray-600 theme-tech:text-gray-100 md:max-w-[80%] md:pr-0 lg:mt-6 lg:text-[1.17vw]"
+                                        //className="text-[4.5vw] body-m mt-2 text-pretty pr-4 text-gray-600 theme-tech:text-gray-100 md:max-w-[80%] md:pr-0 lg:mt-6 lg:text-[1.17vw]"
+                                        className="body-m mt-2 text-pretty pr-4 text-gray-500 theme-tech:text-gray-100 md:max-w-[80%] md:pr-0 lg:mt-6"
                                     >
-                                        Sierra’s conversational AI platform
-                                        enables your company to build an AI
-                                        agent that is personalized to your
-                                        business and customers.
+                                        {MAKE_AI_YOUR_OWN_DESCRIPTION}
                                     </p>
                                     <Button name={"Our platform"} />
                                 </div>
@@ -138,7 +153,10 @@ const MakeAIYourOwn = () => {
                                                             strokeLinejoin="round"
                                                         ></path>
                                                     </svg>
-                                                    Ground your AI agent
+
+                                                    {
+                                                        GROUND_YOUR_AI_AGENT_HEADING
+                                                    }
                                                 </span>
                                             </h3>
                                             <div
@@ -156,13 +174,9 @@ const MakeAIYourOwn = () => {
                                             >
                                                 <div>
                                                     <p className="body-s px-4 pb-5 pt-2 md:p-4 md:pt-2 lg:px-6 lg:py-4 text-gray-600">
-                                                        Imbue your agent with
-                                                        your company’s identity,
-                                                        policies, processes, and
-                                                        knowledge – ensuring
-                                                        your agent represents
-                                                        the best of your
-                                                        business.
+                                                        {
+                                                            GROUND_YOUR_AI_AGENT_DESCRIPTION
+                                                        }
                                                     </p>
                                                 </div>
                                             </div>
@@ -210,7 +224,9 @@ const MakeAIYourOwn = () => {
                                                             fill="currentColor"
                                                         ></path>
                                                     </svg>
-                                                    Solve problems the right way
+                                                    {
+                                                        SOLVE_PROBLEMS_THE_RIGHT_WAY_HEADING
+                                                    }
                                                 </span>
                                             </h3>
                                             <div
@@ -230,13 +246,9 @@ const MakeAIYourOwn = () => {
                                             >
                                                 <div>
                                                     <p className="body-s px-4 pb-5 pt-2 md:p-4 md:pt-2 lg:px-6 lg:py-4">
-                                                        Set goals to guide your
-                                                        agent to the right
-                                                        solutions, and set
-                                                        guardrails to ensure
-                                                        they stay on-point and
-                                                        aligned with your
-                                                        policies.
+                                                        {
+                                                            SOLVE_PROBLEMS_THE_RIGHT_WAY_DESCRIPTION
+                                                        }
                                                     </p>
                                                 </div>
                                             </div>
@@ -277,7 +289,9 @@ const MakeAIYourOwn = () => {
                                                             strokeLinejoin="round"
                                                         ></path>
                                                     </svg>
-                                                    Take action on your systems
+                                                    {
+                                                        TAKE_ACTION_ON_YOUR_SYSTEMS_HEADING
+                                                    }
                                                 </span>
                                             </h3>
                                             <div
@@ -295,15 +309,9 @@ const MakeAIYourOwn = () => {
                                             >
                                                 <div>
                                                     <p className="body-s px-4 pb-5 pt-2 md:p-4 md:pt-2 lg:px-6 lg:py-4">
-                                                        Conversational AI isn’t
-                                                        just about answering
-                                                        questions. With Sierra,
-                                                        your AI agent can take
-                                                        action, whether updating
-                                                        a case in CRM or
-                                                        managing a delivery in
-                                                        an order management
-                                                        system.
+                                                        {
+                                                            TAKE_ACTION_ON_YOUR_SYSTEMS_DESCRIPTION
+                                                        }
                                                     </p>
                                                 </div>
                                             </div>
@@ -321,11 +329,11 @@ const MakeAIYourOwn = () => {
                                             <div className="relative h-full w-full">
                                                 <video
                                                     loop
-                                                    autoPlay
+                                                    autoPlay={!videomute}
                                                     playsInline
                                                     preload="metadata"
                                                     controls
-                                                    muted
+                                                    muted={!videomute}
                                                     src="/assets/video/Speaks.mp4"
                                                     className="h-full w-full object-cover"
                                                     id=":R236bpla:"
@@ -350,23 +358,46 @@ const MakeAIYourOwn = () => {
                                                     <div className="flex items-center gap-2">
                                                         <div className="flex">
                                                             <button
+                                                                onClick={
+                                                                    handleMakeOwnVideoMutedOrNot
+                                                                }
                                                                 aria-label="Play video"
                                                                 className="group pointer-events-auto flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-gray-300/45 p-1 outline-none transition duration-300 hover:bg-white focus-visible:bg-white group-hover:bg-white"
                                                             >
                                                                 <span className="rounded-full border border-white p-2 text-white transition duration-300 group-hover:border-green-500 group-hover:text-green-500 group-focus-visible:border-yellow group-focus-visible:text-yellow">
-                                                                    <svg
-                                                                        viewBox="0 0 24 24"
-                                                                        fill="none"
-                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                        className="w-4"
-                                                                    >
-                                                                        <path
-                                                                            d="M21 12L6 3V21L21 12Z"
-                                                                            stroke="currentColor"
-                                                                            strokeWidth="2"
-                                                                            strokeLinejoin="round"
-                                                                        ></path>
-                                                                    </svg>
+                                                                    {!videomute ? (
+                                                                        <svg
+                                                                            viewBox="0 0 24 24"
+                                                                            fill="none"
+                                                                            xmlns="http://www.w3.org/2000/svg"
+                                                                            className="w-4"
+                                                                        >
+                                                                            <path
+                                                                                d="M21 12L6 3V21L21 12Z"
+                                                                                stroke="currentColor"
+                                                                                strokeWidth="2"
+                                                                                strokeLinejoin="round"
+                                                                            ></path>
+                                                                        </svg>
+                                                                    ) : (
+                                                                        <svg
+                                                                            viewBox="0 0 24 24"
+                                                                            fill="none"
+                                                                            xmlns="http://www.w3.org/2000/svg"
+                                                                            className="w-4"
+                                                                        >
+                                                                            <path
+                                                                                d="M4.75 3.75H9.25V20.25H4.75V3.75Z"
+                                                                                stroke="currentColor"
+                                                                                stroke-width="2"
+                                                                            ></path>
+                                                                            <path
+                                                                                d="M14.75 3.75H19.25V20.25H14.75V3.75Z"
+                                                                                stroke="currentColor"
+                                                                                stroke-width="2"
+                                                                            ></path>
+                                                                        </svg>
+                                                                    )}
                                                                 </span>
                                                             </button>
                                                         </div>

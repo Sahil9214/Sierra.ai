@@ -1,9 +1,26 @@
 /* eslint-disable prettier/prettier */
 import React, { useEffect, useState } from "react";
 import Button from "../Buttons/Button";
+import {
+    TRANSFORM_YOUR_CUSTOMER_EXPERIENCE_HEADING,
+    TRANSFORM_YOUR_CUSTOMER_EXPERIENCE_DESCRIPTION,
+    OUR_PRODUCT,
+    ENGAGE_AND_DELIGHT_CUSTOMERS_HEADING,
+    ENGAGE_AND_DELIGHT_CUSTOMERS_DESCRIPTION,
+    SUPPORT_YOUR_CUSTOMERS_IN_REAL_TIME_HEADING,
+    SUPPORT_YOUR_CUSTOMERS_IN_REAL_TIME_DESCRIPTION,
+    ADAPT_AND_GET_BETTER_FASTER_HEADING,
+    ADAPT_AND_GET_BETTER_FASTER_DESCRIPTION,
+} from "../../utils/Constant";
 
 const TransformYourCustomerExperince = () => {
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+    // Initialize videoMuted as true to start muted
+    const [videoMuted, setVideoMuted] = useState(true);
+
+    const handleAudioToggle = () => {
+        setVideoMuted(!videoMuted);
+    };
 
     useEffect(() => {
         const handleResize = () => {
@@ -20,32 +37,20 @@ const TransformYourCustomerExperince = () => {
 
     return (
         <section
-            className={`slide-in theme-base relative
-                
-                ${windowWidth > 768 ? "py-12" : "py-4"}
-                
-                bg-white  text-gray-500 theme-tech:bg-black theme-tech:text-gray-100 theme-product:bg-gray-100 theme-platform:bg-gray-200 md:py-16 lg:pt-18`}
+            className="theme-base relative bg-white py-12 text-gray-400 theme-tech:bg-black theme-tech:text-gray-100 theme-product:bg-gray-100 theme-platform:bg-gray-200 md:py-16 lg:py-18"
             style={{ zIndex: "6" }}
         >
             <div className="mx-auto max-w-screen-3xl px-4 lg:px-2.5">
                 <div className="grid grid-cols-12 gap-2 md:gap-2.5 pb-8 md:pb-14 lg:pb-18">
                     <div className="col-span-12 flex flex-col items-start md:col-span-10 lg:col-span-7 lg:col-start-2">
-                        <h2
-                            className="title-l text-pretty pr-4 text-black theme-tech:text-white md:pr-0"
-                            // className="text-[7.2vw] text-pretty pr-4 text-black theme-tech:text-white md:pr-0 lg:text-[2.8vw]"
-                        >
-                            Transform your customer experience{" "}
+                        <h2 className="title-l text-pretty pr-4 text-black theme-tech:text-white md:pr-0">
+                            {TRANSFORM_YOUR_CUSTOMER_EXPERIENCE_HEADING}
                         </h2>
-                        <p
-                            className="body-m mt-2 text-pretty pr-4 text-gray-400 theme-tech:text-gray-100 md:max-w-[80%] md:pr-0 lg:mt-6"
-                            //className="body-m mt-2 text-pretty pr-4 text-gray-600 theme-tech:text-gray-100 md:max-w-[80%] md:pr-0 lg:mt-6 lg:text-[1.2vw]"
-                        >
-                            Enable your customers to get answers, solve
-                            problems, and take action through a natural,
-                            conversational experience.
+                        <p className="body-m mt-2 text-pretty pr-4 text-gray-400 theme-tech:text-gray-100 md:max-w-[80%] md:pr-0 lg:mt-6">
+                            {TRANSFORM_YOUR_CUSTOMER_EXPERIENCE_DESCRIPTION}
                         </p>
 
-                        <Button name="Our product" />
+                        <Button name={OUR_PRODUCT} />
                     </div>
                 </div>
                 <div className="grid grid-cols-12 gap-2 md:gap-2.5 ">
@@ -58,9 +63,7 @@ const TransformYourCustomerExperince = () => {
                                     autoPlay
                                     playsInline
                                     preload="metadata"
-                                    // controls
-                                    muted
-                                    //  src="/assets/video/TrasnformCustomer.mp4"
+                                    muted={videoMuted}
                                     src="https://sierra.ai/api/video?src=https%3A%2F%2Fcdn.sanity.io%2Ffiles%2Fca4jck6w%2Fproduction%2Fc258b1b7ae10b506dfcb62c91796d19b30bc6c32.mp4"
                                     id=":R676bpla:"
                                 ></video>
@@ -77,27 +80,44 @@ const TransformYourCustomerExperince = () => {
                                         <div className="flex items-center gap-2">
                                             <div className="flex">
                                                 <button
-                                                    aria-label="Pause video"
+                                                    onClick={handleAudioToggle}
+                                                    aria-label="Toggle audio"
                                                     className="group pointer-events-auto flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-gray-300/45 p-1 outline-none transition duration-300 hover:bg-white focus-visible:bg-white group-hover:bg-white"
                                                 >
                                                     <span className="rounded-full border border-white p-2 text-white transition duration-300 group-hover:border-green-500 group-hover:text-green-500 group-focus-visible:border-yellow group-focus-visible:text-yellow">
-                                                        <svg
-                                                            viewBox="0 0 24 24"
-                                                            fill="none"
-                                                            xmlns="http://www.w3.org/2000/svg"
-                                                            className="w-4"
-                                                        >
-                                                            <path
-                                                                d="M4.75 3.75H9.25V20.25H4.75V3.75Z"
-                                                                stroke="currentColor"
-                                                                strokeWidth="2"
-                                                            ></path>
-                                                            <path
-                                                                d="M14.75 3.75H19.25V20.25H14.75V3.75Z"
-                                                                stroke="currentColor"
-                                                                strokeWidth="2"
-                                                            ></path>
-                                                        </svg>
+                                                        {videoMuted ? (
+                                                            <svg
+                                                                viewBox="0 0 24 24"
+                                                                fill="none"
+                                                                xmlns="http://www.w3.org/2000/svg"
+                                                                class="w-4"
+                                                            >
+                                                                <path
+                                                                    d="M21 12L6 3V21L21 12Z"
+                                                                    stroke="currentColor"
+                                                                    strokeWidth="2"
+                                                                    strokeLinejoin="round"
+                                                                ></path>
+                                                            </svg>
+                                                        ) : (
+                                                            <svg
+                                                                viewBox="0 0 24 24"
+                                                                fill="none"
+                                                                xmlns="http://www.w3.org/2000/svg"
+                                                                className="w-4"
+                                                            >
+                                                                <path
+                                                                    d="M4.75 3.75H9.25V20.25H4.75V3.75Z"
+                                                                    stroke="currentColor"
+                                                                    strokeWidth="2"
+                                                                ></path>
+                                                                <path
+                                                                    d="M14.75 3.75H19.25V20.25H14.75V3.75Z"
+                                                                    stroke="currentColor"
+                                                                    strokeWidth="2"
+                                                                ></path>
+                                                            </svg>
+                                                        )}
                                                     </span>
                                                 </button>
                                             </div>
@@ -111,10 +131,7 @@ const TransformYourCustomerExperince = () => {
                     <div className="col-span-12 md:col-span-5 lg:col-span-3 md:col-start-8 lg:col-start-9 ">
                         <ul className="flex flex-col gap-6">
                             <li>
-                                <h3
-                                    //className="body-m md:body-l flex gap-2 text-black theme-tech:text-white lg:py-4 mb-3 py-0 md:mb-0"
-                                    className="body-m md:body-l flex gap-2 text-black theme-tech:text-white lg:py-4 mb-3 py-0 md:mb-0 sm:text-[2.2vw] lg:text-[1.2vw]"
-                                >
+                                <h3 className="body-m md:body-l flex gap-2 text-black theme-tech:text-white lg:py-4 mb-3 py-0 md:mb-0 sm:text-[2.2vw] lg:text-[1.2vw]">
                                     <svg
                                         viewBox="0 0 24 24"
                                         fill="none"
@@ -140,16 +157,10 @@ const TransformYourCustomerExperince = () => {
                                             fill="currentColor"
                                         ></path>
                                     </svg>
-                                    Engage and delight customers
+                                    {ENGAGE_AND_DELIGHT_CUSTOMERS_HEADING}
                                 </h3>
-                                <p
-                                    className="body-s pr-4 md:pr-0 lg:pb-4 text-gray-600"
-
-                                    //className="body-s text-sm pr-4 md:pr-0 lg:pb-4 lg:text-[1.1vw] text-gray-600"
-                                >
-                                    Deploy an AI agent that is always available,
-                                    empathetic, and aligned to your brand tone
-                                    and voice.
+                                <p className="body-s pr-4 md:pr-0 lg:pb-4 text-gray-600">
+                                    {ENGAGE_AND_DELIGHT_CUSTOMERS_DESCRIPTION}
                                 </p>
                             </li>
                             <li>
@@ -168,22 +179,18 @@ const TransformYourCustomerExperince = () => {
                                             strokeLinejoin="round"
                                         ></path>
                                     </svg>
-                                    Support your customers in real-time
+                                    {
+                                        SUPPORT_YOUR_CUSTOMERS_IN_REAL_TIME_HEADING
+                                    }
                                 </h3>
-                                <p
-                                    className="body-s pr-4 md:pr-0 lg:pb-4 text-gray-600"
-                                    //className="body-s text-sm pr-4 md:pr-0 lg:pb-4 lg:text-[1.1vw] text-gray-600"
-                                >
-                                    Help customers with even their most complex
-                                    issues, whether making an exchange or
-                                    updating a subscription.{" "}
+                                <p className="body-s pr-4 md:pr-0 lg:pb-4 text-gray-600">
+                                    {
+                                        SUPPORT_YOUR_CUSTOMERS_IN_REAL_TIME_DESCRIPTION
+                                    }
                                 </p>
                             </li>
                             <li>
-                                <h3
-                                    // className="body-m md:body-l flex gap-2 text-black theme-tech:text-white lg:py-4 mb-3 py-0 md:mb-0"
-                                    className="body-m md:body-l flex gap-2 text-black theme-tech:text-white lg:py-4 mb-3 py-0 md:mb-0 sm:text-[2.2vw] lg:text-[1.2vw]"
-                                >
+                                <h3 className="body-m md:body-l flex gap-2 text-black theme-tech:text-white lg:py-4 mb-3 py-0 md:mb-0 sm:text-[2.2vw] lg:text-[1.2vw]">
                                     <svg
                                         viewBox="0 0 24 24"
                                         fill="none"
@@ -198,16 +205,10 @@ const TransformYourCustomerExperince = () => {
                                             strokeLinejoin="round"
                                         ></path>
                                     </svg>
-                                    Adapt and get better, faster
+                                    {ADAPT_AND_GET_BETTER_FASTER_HEADING}
                                 </h3>
-                                <p
-                                    className="body-s pr-4 md:pr-0 lg:pb-4 text-gray-600"
-                                    //className="body-s text-sm pr-4 md:pr-0 lg:pb-4 lg:text-[1.1vw] text-gray-600"
-                                >
-                                    Respond swiftly to changes in your business,
-                                    and harness analytics and reporting to
-                                    continuously improve the customer
-                                    experience.{" "}
+                                <p className="body-s pr-4 md:pr-0 lg:pb-4 text-gray-600">
+                                    {ADAPT_AND_GET_BETTER_FASTER_DESCRIPTION}
                                 </p>
                             </li>
                         </ul>

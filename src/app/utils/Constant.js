@@ -96,3 +96,6 @@ export const SOCIAL = "Social";
 export const LINKEDIN = "LinkedIn";
 export const X = "X";
 export const COPYRIGHT = "© 2024 Sierra";
+
+
+export const SUBSCRIBERS = "Subscribers";

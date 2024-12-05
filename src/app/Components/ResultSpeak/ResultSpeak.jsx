@@ -2,6 +2,10 @@
 import React from "react";
 import Image from "next/image";
 import Button from "../Buttons/Button";
+import {
+    THE_RESULTS_SPEAK_FOR_THEMSELVES_DESCRIPTION,
+    THE_RESULTS_SPEAK_FOR_THEMSELVES_HEADING,
+} from "../../utils/Constant";
 const ResultSpeak = () => {
     return (
         <section
@@ -12,12 +16,10 @@ const ResultSpeak = () => {
                 <div className="grid grid-cols-12 gap-2 md:gap-2.5 pb-8 md:pb-14 lg:pb-18">
                     <div className="col-span-12 flex flex-col items-start md:col-span-10 lg:col-span-7 lg:col-start-2">
                         <h2 className="title-l text-pretty pr-4 text-black theme-tech:text-white md:pr-0">
-                            The results speak for themselves
+                            {THE_RESULTS_SPEAK_FOR_THEMSELVES_HEADING}
                         </h2>
                         <p className="body-m mt-2 text-pretty pr-4 text-gray-500 theme-tech:text-gray-100 md:max-w-[80%] md:pr-0 lg:mt-6">
-                            Sierra is trusted by leading consumer brands with
-                            millions of customers across a wide range of
-                            industries.
+                            {THE_RESULTS_SPEAK_FOR_THEMSELVES_DESCRIPTION}
                         </p>
                         <Button name={"Our customers"} />
                     </div>
@@ -29,7 +31,7 @@ const ResultSpeak = () => {
                         className="group col-span-12 overflow-hidden rounded-2xl outline-offset-4 outline-yellow md:col-span-6 lg:col-span-4"
                         href="/customers/sonos"
                     >
-                        <figure className="bg-vignette relative mb-2 aspect-square overflow-hidden rounded-2xl bg-gray-100 lg:mb-4">
+                        <figure className="bg-vignette relative mb-2 aspect-square overflow-hidden rounded-2xl bg-gray-300 lg:mb-4">
                             <Image
                                 alt="Woman walking with Sonos speaker"
                                 loading="lazy"
@@ -37,6 +39,9 @@ const ResultSpeak = () => {
                                 className="block h-auto w-full object-cover transition-[transform] duration-200 group-hover:scale-105 group-focus-visible:scale-105 motion-reduce:transition-none motion-reduce:group-hover:scale-100 motion-reduce:group-focus-visible:scale-100"
                                 sizes="(min-width: 769px) 33vw, 100vw"
                                 src="https://sierra.ai/-/cdn/image?src=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fca4jck6w%2Fproduction%2Fb3f87feb3ff0c7bd257db2125940f708b9fe8b34-6000x6000.jpg&amp;width=3840&amp;quality=90"
+                                style={{
+                                    color: "transparent",
+                                }}
                             />
                             <div className="absolute z-10 flex h-full w-full flex-col justify-between p-4 md:p-6">
                                 <div className="relative h-5">
@@ -46,6 +51,7 @@ const ResultSpeak = () => {
                                         width={1030}
                                         height={240}
                                         className="block h-full w-auto brightness-0 invert"
+                                        style={{ color: "transparent " }}
                                         src="https://sierra.ai/-/cdn/image?src=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fca4jck6w%2Fproduction%2Ffde6590808fad7d7a764c6008f2a1bee57a85298-1030x240.png&width=384&quality=90"
                                     />
                                 </div>
@@ -72,7 +78,7 @@ const ResultSpeak = () => {
                         className="group col-span-12 overflow-hidden rounded-2xl outline-offset-4 outline-yellow md:col-span-6 lg:col-span-4"
                         href="/customers/siriusxm"
                     >
-                        <figure className="bg-vignette relative mb-2 aspect-square overflow-hidden rounded-2xl bg-gray-100 lg:mb-4">
+                        <figure className="bg-vignette relative mb-2 aspect-square overflow-hidden rounded-2xl bg-gray-00 lg:mb-4">
                             <Image
                                 alt="SiriusXM logo poster inside a train"
                                 loading="lazy"

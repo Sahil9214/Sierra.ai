@@ -12,6 +12,9 @@ import {
     AUDITING_HEADING,
     PRIVACY_DESCRIPTION,
     DATA_GOVERNANCE_HEADING,
+    SECURE_INTEGRATION_HEADING,
+    SUPERVISION_HEADING,
+    SAFE_AND_SECURE_HEADING,
 } from "../../utils/Constant.js";
 const SafeAndSecure = () => {
     // State to manage the visibility of each dropdown
@@ -32,8 +35,8 @@ const SafeAndSecure = () => {
                     <div className="mx-auto max-w-screen-3xl px-4 lg:px-0">
                         <div className="grid grid-cols-12 gap-2 md:gap-2.5 pb-8 md:pb-14 lg:pb-18">
                             <div className="col-span-12 flex flex-col items-start md:col-span-10 lg:col-span-7 lg:col-start-2">
-                                <h2 className="text-[8vw] title-l text-pretty pr-4 text-white lg:text-[2.8vw]">
-                                    Safe and secure
+                                <h2 className="title-l text-pretty pr-4 text-white theme-tech:text-white md:pr-0">
+                                    {SAFE_AND_SECURE_HEADING}
                                 </h2>
                                 <p
                                     //   className="text-[4.5vw] body-m mt-2 text-pretty pr-4  theme-tech:text-gray-100 md:max-w-[80%] md:pr-0 lg:mt-6 lg:text-[1vw] text-white"
@@ -90,7 +93,7 @@ const SafeAndSecure = () => {
                                                             strokeLinejoin="round"
                                                         ></path>
                                                     </svg>
-                                                    Supervision
+                                                    {SUPERVISION_HEADING}
                                                 </span>
                                             </h3>
                                             <Toggler
@@ -137,7 +140,7 @@ const SafeAndSecure = () => {
                                                             strokeLinejoin="round"
                                                         ></path>
                                                     </svg>
-                                                    Secure integration
+                                                    {SECURE_INTEGRATION_HEADING}
                                                 </span>
                                             </h3>
                                             <Toggler

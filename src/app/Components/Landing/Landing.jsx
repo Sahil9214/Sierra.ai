@@ -40,7 +40,7 @@ const Landing = () => {
         };
     }, []);
     return (
-        <div className="py-14">
+        <div>
             <HeroSection />
             {/* Trusted by leading Brands */}
             <TrustedBrand />
