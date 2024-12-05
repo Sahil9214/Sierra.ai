@@ -173,11 +173,11 @@ const MakeAIYourOwn = () => {
                                                 }}
                                             >
                                                 <div>
-                                                    <p className="body-s px-4 pb-5 pt-2 md:p-4 md:pt-2 lg:px-6 lg:py-4 text-gray-600">
+                                                    <span className="flex gap-2 px-4 py-4 md:px-4 lg:px-6">
                                                         {
                                                             GROUND_YOUR_AI_AGENT_DESCRIPTION
                                                         }
-                                                    </p>
+                                                    </span>
                                                 </div>
                                             </div>
                                         </div>
@@ -201,7 +201,7 @@ const MakeAIYourOwn = () => {
                                                 toggleTab("solveProblems")
                                             }
                                         >
-                                            <h3 className="body-m md:body-l text-black theme-tech:text-white lg:text-[1.35vw]">
+                                            <h3 className="body-m md:body-l text-black theme-tech:text-white">
                                                 <span className="flex gap-2 px-4 py-4 md:px-4 lg:px-6">
                                                     <svg
                                                         viewBox="0 0 24 24"
@@ -245,11 +245,11 @@ const MakeAIYourOwn = () => {
                                                 }}
                                             >
                                                 <div>
-                                                    <p className="body-s px-4 pb-5 pt-2 md:p-4 md:pt-2 lg:px-6 lg:py-4">
+                                                    <span className="flex gap-2 px-4 py-4 md:px-4 lg:px-6">
                                                         {
                                                             SOLVE_PROBLEMS_THE_RIGHT_WAY_DESCRIPTION
                                                         }
-                                                    </p>
+                                                    </span>
                                                 </div>
                                             </div>
                                         </div>
@@ -273,7 +273,7 @@ const MakeAIYourOwn = () => {
                                                 toggleTab("takeAction")
                                             }
                                         >
-                                            <h3 className="body-m md:body-l text-black theme-tech:text-white lg:text-[1.35vw]">
+                                            <h3 className="body-m md:body-l text-black theme-tech:text-white">
                                                 <span className="flex gap-2 px-4 py-4 md:px-4 lg:px-6">
                                                     <svg
                                                         viewBox="0 0 24 24"
@@ -308,11 +308,11 @@ const MakeAIYourOwn = () => {
                                                 }}
                                             >
                                                 <div>
-                                                    <p className="body-s px-4 pb-5 pt-2 md:p-4 md:pt-2 lg:px-6 lg:py-4">
+                                                    <span className="flex gap-2 px-4 py-4 md:px-4 lg:px-6">
                                                         {
                                                             TAKE_ACTION_ON_YOUR_SYSTEMS_DESCRIPTION
                                                         }
-                                                    </p>
+                                                    </span>
                                                 </div>
                                             </div>
                                         </div>
