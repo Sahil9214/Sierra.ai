@@ -5,6 +5,12 @@ import React from "react";
 import Button from "../Buttons/Button";
 import Image from "next/image";
 import Link from "next/link";
+import {
+    READ_MORE,
+    WEIGHT_WATCHERS_CUSTOMER_NAME,
+    WEIGHT_WATCHERS_CUSTOMER_POSITION,
+    WEIGHT_WATCHERS_HEADING_DESCRIPTION,
+} from "../../utils/Constant";
 const WeightWatcher = () => {
     return (
         <section
@@ -31,10 +37,10 @@ const WeightWatcher = () => {
                                     </div>
                                     <figcaption className="flex flex-col text-gray-500">
                                         <span className="body-l inline-block font-medium text-grey-600">
-                                            Maureen Martin
+                                            {WEIGHT_WATCHERS_CUSTOMER_NAME}
                                         </span>
                                         <span className="body-s inline-block text-grey-500">
-                                            VP of Customer Care, WeightWatchers
+                                            {WEIGHT_WATCHERS_CUSTOMER_POSITION}
                                         </span>
                                     </figcaption>
                                 </figure>
@@ -47,18 +53,20 @@ const WeightWatcher = () => {
                                         width={1820}
                                         height={240}
                                         decoding="async"
+                                        style={{
+                                            filter: "var(--filter-gray-250)",
+                                        }}
                                         className="block filter-gray-250 h-full w-auto"
                                         sizes="(min-width: 1025px) 10vw, 20vw"
                                         src="https://sierra.ai/-/cdn/image?src=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fca4jck6w%2Fproduction%2Fa4674e26fca0fc4001abdfd1c7c00e88cd21ce91-1820x240.png&amp;width=3840&amp;quality=90"
                                     />
                                 </div>
                                 <blockquote className="title-m relative grow text-black before:absolute before:-left-2.5 before:content-['“'] theme-tech:text-white before:md:-left-3 before:lg:-left-4 pr-4 md:pr-0">
-                                    <span className="sr-only">“</span>I knew the
-                                    AI agent would answer questions quickly, but
-                                    I didn’t expect the responses to be so
-                                    genuine and empathetic.<span>”</span>
+                                    <span className="sr-only">“</span>
+                                    {WEIGHT_WATCHERS_HEADING_DESCRIPTION}
+                                    <span>”</span>
                                 </blockquote>
-                                <Button name={"Read more"} />
+                                <Button name={READ_MORE} />
                             </div>
                         </article>
                     </div>
