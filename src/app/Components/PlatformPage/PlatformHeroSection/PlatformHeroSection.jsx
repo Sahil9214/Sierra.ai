@@ -1,10 +1,28 @@
+/* eslint-disable prettier/prettier */
 "use client";
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { PLATFORM_VIDEO_URL } from "../../../utils/Images/ImagesUrl";
 
 const PlatformHeroSection = () => {
     const [videoPlaying, setVideoPlaying] = useState(true);
+    const [isMobile, setIsMobile] = useState(false);
     const videoRef = useRef(null);
+
+    useEffect(() => {
+        // Check window width on mount
+        const checkMobile = () => {
+            setIsMobile(window.innerWidth <= 768);
+        };
+
+        // Initial check
+        checkMobile();
+
+        // Add resize listener
+        window.addEventListener("resize", checkMobile);
+
+        // Cleanup
+        return () => window.removeEventListener("resize", checkMobile);
+    }, []);
 
     const handleVideo = () => {
         if (videoRef.current) {
@@ -40,7 +58,11 @@ const PlatformHeroSection = () => {
                             muted
                             playsInline
                             preload="metadata"
-                            src={PLATFORM_VIDEO_URL}
+                            src={
+                                !isMobile
+                                    ? "https://sierra.ai/api/video?src=https%3A%2F%2Fcdn.sanity.io%2Ffiles%2Fca4jck6w%2Fproduction%2F7e41653d24b76b90dd5d71a7dcda2cc41b054374.mp4#t=0.001"
+                                    : PLATFORM_VIDEO_URL
+                            }
                             id="platformVideo"
                         />
                         <div
