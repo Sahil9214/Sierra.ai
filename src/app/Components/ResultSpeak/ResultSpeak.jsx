@@ -29,7 +29,7 @@ const ResultSpeak = () => {
                     {/* Sonos Card */}
                     <a
                         className="group col-span-12 overflow-hidden rounded-2xl outline-offset-4 outline-yellow md:col-span-6 lg:col-span-4"
-                        href="/customers/sonos"
+                        href="/Customers"
                     >
                         <figure className="bg-vignette relative mb-2 aspect-square overflow-hidden rounded-2xl bg-gray-300 lg:mb-4">
                             <Image

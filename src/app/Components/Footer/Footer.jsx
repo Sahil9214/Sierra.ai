@@ -45,7 +45,7 @@ const Footer = () => {
                             <div className="flex justify-center">
                                 <a
                                     className="body-s inline-flex items-center justify-between rounded-full outline-none transition cursor-pointer disabled:cursor-not-allowed bg-green-800 text-white hover:bg-transparent hover:text-green-500 border border-green-800 focus-visible:bg-transparent focus-visible:border-yellow focus-visible:text-yellow gap-12 px-4 py-3 md:px-8 md:py-4 active:bg-green-300 active:border-green-300 disabled:bg-gray-300 disabled:border-gray-300 disabled:text-white"
-                                    href="#"
+                                    href="/LearnMore"
                                 >
                                     {LEARN_MORE}
                                     <svg
