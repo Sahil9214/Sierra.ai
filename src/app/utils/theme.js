@@ -68,4 +68,4 @@ export const themeConfig = {
             border: "active:border-green-300",
         },
     },
-} 
+};

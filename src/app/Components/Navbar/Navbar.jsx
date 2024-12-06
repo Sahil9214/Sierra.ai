@@ -3,6 +3,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import gsap from "gsap";
 import Logo from "../Logo/Logo";
+
 import {
     PLATFORM,
     PRODUCT,
@@ -10,8 +11,9 @@ import {
     COMPANY,
     LEARN_MORE,
 } from "../../utils/Constant";
+import Link from "next/link";
 
-const Navbar = () => {
+const Navbar = ({ color }) => {
     const [isOpen, setIsOpen] = useState(false);
     const menuRef = useRef(null);
 
@@ -42,14 +44,19 @@ const Navbar = () => {
     };
 
     const menuItems = [
-        { label: PRODUCT, href: "/product" },
-        { label: PLATFORM, href: "/platform" },
-        { label: CUSTOMERS, href: "/customers" },
-        { label: COMPANY, href: "/about" },
+        { label: PRODUCT, href: "/Product" },
+        { label: PLATFORM, href: "/Platform" },
+        { label: CUSTOMERS, href: "/Customers" },
+        { label: COMPANY, href: "/About" },
     ];
 
     return (
-        <nav className="py-3 lg:py-6">
+        <nav
+            className="py-3 lg:py-6"
+            style={{
+                backgroundColor: color,
+            }}
+        >
             <div className="mx-auto max-w-screen-3xl px-4 flex w-full items-center justify-between md:h-11 lg:px-6">
                 <div className="relative flex w-full justify-between gap-16 md:justify-normal">
                     <div className="mx-auto max-w-screen-3xl px-4 flex w-full items-center justify-between md:h-11 lg:px-6">
@@ -57,7 +64,10 @@ const Navbar = () => {
                         <div className="flex items-center gap-16 flex-1">
                             {/* Logo */}
                             <div className="flex-shrink-0">
-                                <Logo />
+                                <Link href={"/"}>
+                                    {" "}
+                                    <Logo />
+                                </Link>
                             </div>
 
                             {/* Desktop Menu Items - Now directly next to logo */}
@@ -105,7 +115,7 @@ const Navbar = () => {
                                 //className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gray-300 text-gray-600 hover:border-green-500 hover:text-green-500 transition-colors duration-200"
 
                                 className="body-s inline-flex items-center justify-between rounded-full outline-none transition cursor-pointer disabled:cursor-not-allowed border border-gray-600 text-gray-600 group-hover:border-green-500 hover:border-green-500 hover:text-green-500 group-hover:text-green-500 focus-visible:border-yellow active:border-green-300 active:text-green-300 gap-6 py-3 md:py-2 theme-tech:text-white theme-tech:border-white theme-tech:hover:text-gray-200 theme-platform:border-gray-300 theme-platform:hover:border-green-500 theme-platform:focus-visible:border-yellow theme-tech:hover:border-gray-200 theme-tech:focus-visible:border-yellow theme-tech:focus-visible:text-yellow disabled:border-gray-200 disabled:text-gray-300 px-4"
-                                href="/learn-more"
+                                href="/LearnMore"
                             >
                                 Learn more
                                 <svg

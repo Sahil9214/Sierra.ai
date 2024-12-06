@@ -12,6 +12,17 @@ import HeroSection from "../HeroSection/HeroSection";
 import gsap from "gsap";
 import WeightWatcher from "../WeightWatcher/WeightWatcher";
 import TransformYourCustomerExperince from "../TransformYourCustomerExperience/TransformYourCustomerExperince";
+import {
+    HERO_SECTION_DESCRIPTION,
+    HERO_SECTION_SUB_TITLE,
+    WATCH_VIDEO,
+    WEIGHT_WATCHERS_CUSTOMER_NAME,
+    WEIGHT_WATCHERS_CUSTOMER_POSITION,
+} from "../../utils/Constant";
+import {
+    WEIGHT_WATCHER_IMAGE_URL,
+    WEIGHT_WATCHER_HEADSHOT_IMAGE_URL,
+} from "../../utils/Images/ImagesUrl";
 const Landing = () => {
     useGsapAnimations();
     useEffect(() => {
@@ -41,12 +52,27 @@ const Landing = () => {
     }, []);
     return (
         <div>
-            <HeroSection />
+            <HeroSection
+                heading={HERO_SECTION_DESCRIPTION}
+                subHeading={HERO_SECTION_SUB_TITLE}
+                buttonText={WATCH_VIDEO}
+                video={
+                    "https://sierra.ai/api/video?src=https%3A%2F%2Fcdn.sanity.io%2Ffiles%2Fca4jck6w%2Fproduction%2F241aead84eb6128e26b40905d3cf36d831763dce.mp4"
+                }
+            />
             {/* Trusted by leading Brands */}
             <TrustedBrand />
             {/* Transform your customer experience */}
             <TransformYourCustomerExperince />
-            <WeightWatcher />
+            <WeightWatcher
+                image={WEIGHT_WATCHER_HEADSHOT_IMAGE_URL}
+                logo={WEIGHT_WATCHER_IMAGE_URL}
+                name={WEIGHT_WATCHERS_CUSTOMER_NAME}
+                designation={WEIGHT_WATCHERS_CUSTOMER_POSITION}
+                thought={
+                    "I knew the AI agent would answer questions quickly, but I didn’t expect the responses to be so genuine and empathetic.”"
+                }
+            />
         </div>
     );
 };
