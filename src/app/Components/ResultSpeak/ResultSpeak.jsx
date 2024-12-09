@@ -6,6 +6,7 @@ import {
     THE_RESULTS_SPEAK_FOR_THEMSELVES_DESCRIPTION,
     THE_RESULTS_SPEAK_FOR_THEMSELVES_HEADING,
 } from "../../utils/Constant";
+import Link from "next/link";
 const ResultSpeak = () => {
     return (
         <section
@@ -27,7 +28,7 @@ const ResultSpeak = () => {
 
                 <div className="grid grid-cols-12 gap-2 md:gap-2.5 gap-y-8 lg:gap-y-14">
                     {/* Sonos Card */}
-                    <a
+                    <Link
                         className="group col-span-12 overflow-hidden rounded-2xl outline-offset-4 outline-yellow md:col-span-6 lg:col-span-4"
                         href="/Customers"
                     >
@@ -71,12 +72,12 @@ const ResultSpeak = () => {
                             How Sonos elevates the listener experience with
                             Sierra.
                         </div>
-                    </a>
+                    </Link>
 
                     {/* SiriusXM Card */}
-                    <a
+                    <Link
                         className="group col-span-12 overflow-hidden rounded-2xl outline-offset-4 outline-yellow md:col-span-6 lg:col-span-4"
-                        href="/customers/siriusxm"
+                        href="/Customers"
                     >
                         <figure className="bg-vignette relative mb-2 aspect-square overflow-hidden rounded-2xl bg-gray-00 lg:mb-4">
                             <Image
@@ -123,12 +124,12 @@ const ResultSpeak = () => {
                         <div className="body-l mx-auto max-w-sm text-balance text-center text-[#222222] opacity-70">
                             How SiriusXM drives listener loyalty with Sierra.
                         </div>
-                    </a>
+                    </Link>
 
                     {/* Casper Card */}
-                    <a
+                    <Link
                         className="group col-span-12 overflow-hidden rounded-2xl outline-offset-4 outline-yellow md:col-span-6 lg:col-span-4"
-                        href="/customers/casper"
+                        href="/Customers"
                     >
                         <figure className="bg-vignette relative mb-2 aspect-square overflow-hidden rounded-2xl bg-gray-100 lg:mb-4">
                             <Image
@@ -212,7 +213,7 @@ const ResultSpeak = () => {
                             How Casper turns a big purchase into a lifelong
                             relationship with AI.
                         </div>
-                    </a>
+                    </Link>
                 </div>
             </div>
         </section>

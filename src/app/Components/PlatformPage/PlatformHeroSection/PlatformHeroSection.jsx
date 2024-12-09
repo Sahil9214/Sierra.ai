@@ -22,7 +22,7 @@ const PlatformHeroSection = () => {
 
         // Cleanup
         return () => window.removeEventListener("resize", checkMobile);
-    }, []);
+    }, [isMobile]);
 
     const handleVideo = () => {
         if (videoRef.current) {
@@ -34,7 +34,7 @@ const PlatformHeroSection = () => {
             setVideoPlaying(!videoPlaying);
         }
     };
-
+    console.log("*** isMobile ***", isMobile);
     return (
         <header>
             <div className="mx-auto max-w-screen-3xl px-4 lg:px-2.5 flex flex-col items-center py-12 md:py-18">
@@ -61,7 +61,7 @@ const PlatformHeroSection = () => {
                             src={
                                 !isMobile
                                     ? "https://sierra.ai/api/video?src=https%3A%2F%2Fcdn.sanity.io%2Ffiles%2Fca4jck6w%2Fproduction%2F7e41653d24b76b90dd5d71a7dcda2cc41b054374.mp4#t=0.001"
-                                    : PLATFORM_VIDEO_URL
+                                    : "https://sierra.ai/api/video?src=https%3A%2F%2Fcdn.sanity.io%2Ffiles%2Fca4jck6w%2Fproduction%2Fbd5219875ee27e023f68b8c4132763bc87310315.mp4"
                             }
                             id="platformVideo"
                         />

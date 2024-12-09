@@ -11,7 +11,7 @@ import {
     WEIGHT_WATCHERS_CUSTOMER_POSITION,
     WEIGHT_WATCHERS_HEADING_DESCRIPTION,
 } from "../../utils/Constant";
-const WeightWatcher = ({ image, logo, name, designation, thought }) => {
+const WeightWatcher = ({ image, logo, name, designation, thought, link }) => {
     return (
         <section
             className="relative  py-12 text-gray-400 theme-tech:bg-black theme-tech:text-gray-100 theme-product:bg-gray-100 theme-platform:bg-gray-200 md:py-16 lg:py-18 overflow-x-hidden"
@@ -66,7 +66,7 @@ const WeightWatcher = ({ image, logo, name, designation, thought }) => {
                                     {thought}
                                     <span>”</span>
                                 </blockquote>
-                                <Button name={READ_MORE} />
+                                <Button name={READ_MORE} link={link} />
                             </div>
                         </article>
                     </div>

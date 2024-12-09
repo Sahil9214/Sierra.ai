@@ -126,6 +126,7 @@ const ProductPage = () => {
                     name={SONAS_VP_NAME}
                     designation={SONAS_VP_DESIGNATION}
                     thought={SONAS_THOUGHT}
+                    link={"/Customers"}
                 />
                 {/* {ALWAYS IMPROVING SECTION} */}
                 <SierraSpeak

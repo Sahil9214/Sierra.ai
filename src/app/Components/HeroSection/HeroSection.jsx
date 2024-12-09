@@ -1,9 +1,7 @@
-/* eslint-disable prettier/prettier */
-/* eslint-disable prettier/prettier */
 import React, { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 
-const HeroSection = ({ heading, subHeading, buttonText, video }) => {
+const HeroSection = ({ heading, subHeading, buttonText }) => {
     const [windowWidth, setWindowWidth] = useState(0);
     const [controlsOnVideo, setControlsVideo] = useState(false);
     const [isMuted, setIsMuted] = useState(true);
@@ -23,9 +21,22 @@ const HeroSection = ({ heading, subHeading, buttonText, video }) => {
         }
     }, []);
 
+    const getVideoSource = () => {
+        if (pathname?.includes("Product")) {
+            return windowWidth < 768
+                ? "https://sierra.ai/api/video?src=https%3A%2F%2Fcdn.sanity.io%2Ffiles%2Fca4jck6w%2Fproduction%2Fbd5219875ee27e023f68b8c4132763bc87310315.mp4"
+                : "https://sierra.ai/api/video?src=https%3A%2F%2Fcdn.sanity.io%2Ffiles%2Fca4jck6w%2Fproduction%2F7e41653d24b76b90dd5d71a7dcda2cc41b054374.mp4";
+        } else {
+            // Assuming this is the home page
+            return windowWidth < 768
+                ? "https://sierra.ai/api/video?src=https%3A%2F%2Fcdn.sanity.io%2Ffiles%2Fca4jck6w%2Fproduction%2F241aead84eb6128e26b40905d3cf36d831763dce.mp4"
+                : "https://sierra.ai/api/video?src=https%3A%2F%2Fcdn.sanity.io%2Ffiles%2Fca4jck6w%2Fproduction%2Ff189003833c6b320256e3dddc9182f5caf157771.mp4";
+        }
+    };
+
     return (
         <section
-            className="  relative  py-12 text-gray-400 theme-tech:bg-black theme-tech:text-gray-100 theme-product:bg-gray-100 theme-platform:bg-gray-200 md:py-16 lg:py-18"
+            className="relative py-12 text-gray-400 theme-tech:bg-black theme-tech:text-gray-100 theme-product:bg-gray-100 theme-platform:bg-gray-200 md:py-16 lg:py-18"
             style={{
                 zIndex: 1,
                 backgroundColor: pathname?.includes("Product")
@@ -37,13 +48,13 @@ const HeroSection = ({ heading, subHeading, buttonText, video }) => {
                 <div className="grid grid-cols-12 md:gap-2.5 gap-4">
                     <div className="relative col-span-12 mb-10 flex justify-center md:col-span-10 md:col-start-2">
                         <div className="flex flex-col items-center text-center lg:max-w-[66.67%]">
-                            <h1 className=" headline mb-4 whitespace-pre-wrap text-balance text-black theme-tech:text-white lg:mb-8">
+                            <h1 className="headline mb-4 whitespace-pre-wrap text-balance text-black theme-tech:text-white lg:mb-8">
                                 {heading}
                             </h1>
                             <p className="body-m md:body-l lg:title-s max-w-xl whitespace-pre-wrap text-pretty text-gray-500">
                                 {subHeading}
                             </p>
-                            {pathname?.includes("Product") ? (
+                            {pathname?.includes("Product") && (
                                 <div className="mt-6 flex w-full flex-wrap justify-center gap-4 md:gap-6 lg:mt-16">
                                     <a
                                         className="body-s inline-flex items-center justify-between rounded-full outline-none transition cursor-pointer disabled:cursor-not-allowed bg-green-800 text-white hover:bg-transparent hover:text-green-500 border border-green-500 focus-visible:bg-transparent focus-visible:border-yellow focus-visible:text-yellow gap-12 px-4 py-3 md:px-8 md:py-4 active:bg-green-300 active:border-green-300 disabled:bg-gray-300 disabled:border-gray-300 disabled:text-white"
@@ -52,7 +63,7 @@ const HeroSection = ({ heading, subHeading, buttonText, video }) => {
                                         Watch demo
                                     </a>
                                 </div>
-                            ) : null}
+                            )}
                         </div>
                     </div>
                     <div className="col-span-12">
@@ -67,7 +78,7 @@ const HeroSection = ({ heading, subHeading, buttonText, video }) => {
                                         onClick={handleControlOverVideo}
                                     >
                                         <div className="absolute bottom-9 z-10 flex w-full items-center justify-center">
-                                            <div className="inline-flex h-14  items-center justify-center gap-4 rounded-full  bg-green-800 p-1 outline-none transition hover:bg-white focus-visible:bg-white group-hover:bg-white w-auto">
+                                            <div className="inline-flex h-14 items-center justify-center gap-4 rounded-full bg-green-800 p-1 outline-none transition hover:bg-white focus-visible:bg-white group-hover:bg-white w-auto">
                                                 <span className="h-12 w-12 rounded-full border border-white p-4 text-white transition group-hover:border-green-500 group-hover:text-green-500 group-focus-visible:border-yellow group-focus-visible:text-yellow">
                                                     <svg
                                                         viewBox="0 0 24 24"
@@ -95,10 +106,10 @@ const HeroSection = ({ heading, subHeading, buttonText, video }) => {
                                             preload="metadata"
                                             muted={isMuted}
                                             controls={controlsOnVideo}
-                                            src={video}
+                                            src={getVideoSource()}
                                             className="h-full w-full object-cover"
                                             id=":R236bpla:"
-                                        ></video>
+                                        />
                                     </button>
                                 </div>
                             </div>

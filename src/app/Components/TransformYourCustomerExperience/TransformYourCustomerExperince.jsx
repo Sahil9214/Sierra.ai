@@ -50,7 +50,7 @@ const TransformYourCustomerExperince = () => {
                             {TRANSFORM_YOUR_CUSTOMER_EXPERIENCE_DESCRIPTION}
                         </p>
 
-                        <Button name={OUR_PRODUCT} />
+                        <Button name={OUR_PRODUCT} link={"/Product"} />
                     </div>
                 </div>
                 <div className="grid grid-cols-12 gap-2 md:gap-2.5 ">
